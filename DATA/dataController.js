@@ -1,13 +1,6 @@
 let musicsUrl = 'https://6073fb61066e7e0017e78b99.mockapi.io/api/thu-vien-am-nhac/musics';
 let adminsUrl = 'https://6073fb61066e7e0017e78b99.mockapi.io/api/thu-vien-am-nhac/admins';
 
-//Get data
-
-async function getData(url) {
-    const response = await fetch(url);
-    const listMusics = await response.json();
-}
-
 //Post data
 async function postData(url, data) {
     const response = await fetch(url, {
