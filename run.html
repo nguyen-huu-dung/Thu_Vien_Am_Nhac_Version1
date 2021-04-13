@@ -142,7 +142,7 @@
                 <input class="longinput" type="text" placeholder="Điền link hợp lệ bạn nhé!" id="linkUpload">
                 <p id="lyricsadd">Lời bài hát</p>
                 <textarea class="longtextarea" id="lyricsUpload"></textarea>
-                <p id="resultUpload" class="result"></p>
+                <p id="uploadResult" class="result"></p>
             </form>
             <div class="center">
                 <button id="addUpload" class="button1">Đăng bài hát</button>
@@ -186,7 +186,7 @@
                 <input class="longinput" type="text" placeholder="Ví dụ: One Thing" id="nameRequest">
                 <p class="longp">Ca sĩ/Ban nhạc <span style="color:red">*</span></p>
                 <input class="longinput" type="text" placeholder="Ví dụ: One Direction" id="singerAuthorRequest">
-                <p id="resultRequest" class="result"></p>
+                <p id="requestResult" class="result"></p>
             </form>
             <div class="center">
                 <button id="addRequest" class="button1">Yêu cầu bài hát</button>
@@ -232,7 +232,7 @@
                     id="subjectSuggestion">
                 <p class="longp">Nội dung thư <span style="color:red">*</span></p>
                 <textarea class="longtextarea1" id="contentSuggestion"></textarea>
-                <p id="resultSuggestion" class="result"></p>
+                <p id="suggestionResult" class="result"></p>
             </form>
             <div class="center">
                 <button id="addSuggestion" class="button1">Gửi thư</button>
@@ -266,14 +266,14 @@
             <div>
                 <h1 class="heading">Đăng nhập</h1>
             </div>
-            <div class="body">
+            <form class="body">
                 <div class="flex">
                     <p class="loginp">Tên đăng nhập</p>
-                    <input class="halfinput" type="text" placeholder="Enter username or e-mail">
+                    <input class="halfinput" type="text" placeholder="Enter username or e-mail" id="userName">
                 </div>
                 <div class="flex">
                     <p class="loginp">Mật khẩu</p>
-                    <input class="halfinput" id="longerinput" type="password" placeholder="Enter password">
+                    <input class="halfinput" type="password" placeholder="Enter password" id="passWord">
                 </div>
                 <div class="flex right">
                     <p id="forgetpass" style="text-align: right;">Quên mật khẩu?</p>
@@ -282,16 +282,177 @@
                     <p class="loginp">Hoặc đăng nhập với</p>
                     <p id="loginwith"><i class="fab fa-facebook"></i> <i class="fab fa-google"></i></p>
                 </div>
-            </div>
+                <p id="loginResult" class="result"></p>
+            </form>
             <div>
-                <button id="loginbutton" class="button1">Đăng nhập</button>
+                <button id="addLogin" class="button1">Đăng nhập</button>
                 <button class="button2">Đăng ký ngay</button>
             </div>
         </div>
     </div>
+
+
+    <!-- Phần mọi người làm-->
+
+
     <div id="adminHomePage">
-        <p>admin home page</p>
+        <div id="chooseMenu">
+            <ul>
+                <li id="musicsAdminID">Thư viện bài hát</li>
+                <li id="uploadAdminID">Đăng bài hát</li>
+                <li id="requestAdminID">Yêu cầu bài hát</li>
+                <li id="suggestionAdminID">Liên hệ góp ý</li>
+                <li id="logOutAdminID">Thoát</li>
+            </ul>
+        </div>
+        <div id="content">
+
+            <!--Page quany lý thư viện nhạc-->
+            <div id="musicsAdmin" class="contentAdmin">
+                <p class="titleContent">Quản lý thư viện bài hát</p>
+                <div id="filter" style="display: flex;">
+                    <form id="search">
+                        <label for="searchID">Tìm kiếm</label>
+                        <input type="text" id="searchID">
+                        <button id="begginSearch">Tìm kiếm</button>
+                        <label for="filterGenre">Thể Loại:</label>
+                        <select id="filterGenre" form="filterForm" name="genreList">
+                            <option value="Tất cả">Tất cả</option>
+                            <option value="Thể loại 1">Thể loại 1</option>
+                            <option value="Thể loại 2">Thể loại 2</option>
+                        </select>
+                    </form>
+                    <button id="addNewMusic">Thêm bài hát</button>
+                </div>
+                <div id="musicsContent" class="tableContent">
+                    <table>
+                        <tr>
+                            <th>Tên bài hát</th>
+                            <th>Chức năng</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Tên bài hát 1 - Ca sĩ 1</p>
+                            </td>
+                            <td>
+                                <button>Update</button>
+                                <button>Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Tên bài hát 2 - Ca sĩ 2</p>
+                            </td>
+                            <td>
+                                <button>Update</button>
+                                <button>Delete</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+
+            <!--Page quản lý đăng bài hát-->
+            <div id="uploadAdmin" class="contentAdmin">
+                <p class="titleContent">Quản lý đăng bài hát</p>
+                <div id="uploadContent" class="tableContent">
+                    <table>
+                        <tr>
+                            <th>Bài hát đăng</th>
+                            <th>Chức năng</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Tên bài hát 1 - Ca sĩ 1</p>
+                            </td>
+                            <td>
+                                <button>Add</button>
+                                <button>Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Tên bài hát 2 - Ca sĩ 2</p>
+                            </td>
+                            <td>
+                                <button>Add</button>
+                                <button>Delete</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!--Page Quản lý yêu cầu bài hát-->
+            <div id="requestAdmin">
+                <p class="titleContent">Quản lý yêu cầu bài hát</p>
+                <div id="requestContent" class="tableContent">
+                    <table>
+                        <tr>
+                            <th>Bài hát yêu cầu</th>
+                            <th>Chức năng</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Tên bài hát 1 - Ca sĩ 1 - (chưa xem or đã xem)</p>
+                            </td>
+                            <td>
+                                <button>Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Tên bài hát 2 - Ca sĩ 2 - (chưa xem or đã xem)</p>
+                            </td>
+                            <td>
+                                <button>Delete</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!--Page quản lý góp ý liên hệ-->
+            <div id="suggestionAdmin">
+                <p class="titleContent">Quản lý liên hệ góp ý</p>
+                <div id="suggestionContent" class="tableContent">
+                    <table>
+                        <tr>
+                            <th>Liên hệ/Góp ý</th>
+                            <th>Chức năng</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Chủ đề 1 - (chưa xem or đã xem)</p>
+                            </td>
+                            <td>
+                                <button>Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Chủ đề 2 - (chưa xem or đã xem)</p>
+                            </td>
+                            <td>
+                                <button>Delete</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
+
+
+
+
+
+
+
+
+
+
     <!-- Hello, this is footer -->
     <div id="footer">
         <ul>

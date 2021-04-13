@@ -442,3 +442,72 @@ hr {
 .flex {
     display: flex;
 }
+
+/*admin page*/
+#chooseMenu {
+    list-style-type: none;
+    width: 20%;
+    background-color: #094c72;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    font-size: 18px;
+}
+
+#chooseMenu ul li {
+    display: block;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+} 
+
+#chooseMenu ul li:hover {
+    background: #055a8c;
+    cursor: pointer;
+}
+
+#content {
+    margin-left: 20%;
+    padding: 16px 10px;
+    height: auto;
+}
+
+.contentAdmin{
+    padding-left: 100px;
+}
+
+.titleContent{
+    text-align: center;
+    font-weight: bolder;
+    font-size: 24px;
+    color: #094c72;
+    margin-bottom: 50px;
+}
+
+#searchID{
+    border: 1px solid black;
+    width: 300px;;
+}
+
+#filter{
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+#search{
+    width: auto;
+    margin-right: 30px;
+}
+
+.tableContent{
+    width: 100%;
+}
+
+.tableContent table {
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
