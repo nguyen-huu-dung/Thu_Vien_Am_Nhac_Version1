@@ -1,0 +1,420 @@
+* { 
+    padding: 0; 
+    margin: 0; 
+    border: none; 
+}    
+
+/* day la phan header  */
+body {
+    font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+#header {
+    background: #094c72;
+    position: fixed;
+    top: 0;
+    width: 100%; 
+}
+#header ul {
+    background: #094c72;
+    list-style-type: none;
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+#header li {
+    display: inline-block;
+    padding: 12px 15px 12px 15px;
+    font-size: 15px;
+}
+#search {
+    width: 300px;
+    height: 22px;
+    margin: -12px;
+    border-radius: 5px;
+    padding: 8px;
+}
+#logo {
+    font-weight: bold;
+    cursor: pointer;
+}
+.right {
+    float: right;
+}
+#header .right:hover {
+    background: #055a8c;
+    cursor: pointer;
+}
+/* day la phan homepage + footer*/
+#banner {
+    background-image: url("https://i.imgur.com/rxh17is.jpg");
+    margin-top: 0px;
+    width: 100%;
+    height: 480px;
+    background-size: 100% 100%;
+}
+#bannertext {
+    padding-top: 140px;
+    padding-left: 55%;
+}
+#bannerbutton {
+    position: absolute;
+    bottom: 140px;
+    right: 15px;
+    padding: 20px;
+    text-align: center;
+    font-size: 13px;
+    display: none;
+}
+.bannerbutton {
+    color: #e4f0f6;
+    padding: 0px 0px 8px 0px;
+    font-size: 18px;
+}
+.bannerbutton:hover {
+    color: #f9f9f9;
+    text-decoration: underline;
+    cursor: pointer;
+}
+#bannertext h2 {
+    font-weight: bold;
+    font-size: 22px;
+    color: white;
+}
+#des {
+    font-size: 16px;
+    font-style: italic;
+    padding-top: 8px;
+    color: #f9f9f9;
+}
+.button {
+    background-color: #055a8c; 
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+}
+.container {
+    width: auto;
+    border: 0px;
+    padding: 0px;
+    overflow: auto;
+    margin: auto;
+    background: #f9f9f9;
+    margin-top: 40px;
+}
+#account {
+     width: 25%;
+     float: left;
+     margin: 40px 5px 40px 30px;
+}
+.bxh {
+     float: left;
+     margin: 2%;
+     margin: 40px 5px 40px 5px;
+}
+.today {
+     width: 35%
+}
+.time {
+     width: 33%
+}
+.headingclickable {
+     text-transform: uppercase;
+     font-size: 15px;
+     font-weight: normal;
+     text-align: center;
+     background: #f9f9f9;
+     color: #094c72;
+     padding-bottom: 5px;
+}
+.headingclickable:hover {
+    font-weight: bold;
+    cursor: pointer;
+}
+.body {
+    width: auto;
+    background: white;
+    box-shadow: 0.5px 1.5px 1.5px 0px lightgray;
+}
+.account {
+    height: 60px;
+}
+.xephang {
+    height: auto;
+}
+#login {
+    font-size: 12px;
+    padding: 15px;
+    text-align: center;
+}
+.button1 {
+    background-color: #0079bf; 
+    border: none;
+    border-radius: 10px;
+    color: white;
+    margin-top: 15px;
+    padding: 8px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+}
+.button2 {
+    background-color: #f9f9f9; 
+    border: solid 2px;
+    border-radius: 10px;
+    color: #0079bf;
+    margin-top: 15px;
+    margin-right: -10px;
+    padding: 6px 34px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+}
+.button1:hover {
+    background-color: #055a8c;
+    cursor: pointer;
+}
+.button2:hover {
+    border-color: #055a8c;
+    color: #055a8c;
+    cursor: pointer;
+}
+#decorimg {
+    width: 100%;
+    padding-top: 15px;
+}
+#quote {
+    font-size: 17px;
+    padding: 25px 5px 15px 2px;
+    text-align: center;
+    font-style: italic;
+    color: #094c72;
+    background-image: url("https://www.onlygfx.com/wp-content/uploads/2019/03/14-white-grunge-brush-stroke-13.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+#cite {
+    font-size: 15px;
+    text-align: right;
+    padding-right: 20px;
+    margin-top: -10px;
+    font-style: italic;
+    color: #055a8c;
+}
+hr {
+    border: none;
+    height: 1.1px;
+    margin: 8px 0px 8px -25px;
+    background-color: #e4f0f6
+}
+#footer ul {
+    background: #0079bf;
+    list-style-type: none;
+    color: #e4f0f6;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+#footer li {
+    display: inline-block;
+    padding: 15px 10px 15px 15px;
+    font-size: 14px;
+}
+#footer p {
+    background: #0079bf;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+}
+#footer li:hover {
+    color: white;
+    cursor: pointer;
+}
+#footer i {
+    font-size: 30px;
+}
+.xephang ol {
+    padding: 15px 25px 0px 45px;
+}
+.xephang li {
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.xephang p {
+    display: inline-block;
+}
+.name {
+    font-weight: bold;
+}
+.name:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.singer {
+    font-style: italic;
+    font-weight: normal;
+}
+.countSeen {
+    color: #0079bf;
+    font-weight: normal;
+    font-size: 12px;
+    float: right;
+}
+.xemthem {
+    display: flex;
+    justify-content: center;
+}
+.xemthem p {
+    color: #094c72;
+    font-weight: normal;
+    font-size: 12px;
+    padding-bottom: 15px;
+}
+.xemthem p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+/* hello, day la css cho header features */
+/* dang bai hat */
+.heading {
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: normal;
+    text-align: center;
+    background: #f9f9f9;
+    color: #094c72;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+.huongdan {
+    width: 30%;
+    margin: 25px;
+}
+.huongdan p {
+    padding: 15px 20px 20px 25px;
+    font-size: 13px;
+    text-align: justify;
+}
+#upload {
+    width: 64%;
+    margin: 25px;
+}
+#upload p {
+    font-size: 13px;
+    font-weight: bold;
+}
+.inputleft {
+    width: 48%;
+    float: left;
+    background: none;
+}
+.inputright {
+    width: 48%;
+    float: right;
+    background: none;
+}
+.inputleft input {
+    width: 305px;
+    margin: 0px 0px -5px 20px;
+    padding: 2px 2px 2px 8px;
+    border: 1px solid black;
+}
+.inputleft p {
+    margin: 15px 0px 0px 20px;
+}
+.inputright input {
+    width: 305px;
+    margin: 0px 15px -5px 0px;
+    padding: 2px 2px 2px 8px;
+    border: 1px solid black;
+}
+.inputright p {
+    margin: 15px 15px 0px 0px;
+}
+.longinput {
+    width: 631px;
+    margin: 0px 15px 10px 20px;
+    padding: 2px 2px 2px 8px;
+    border: 1px solid black;
+}
+.longtextarea {
+    width: 631px;
+    height: 150px;
+    margin: 0px 15px 20px 20px;
+    padding: 8px 2px 2px 8px;
+    border: 1px solid black;
+}
+#linkadd {
+    margin: 0px 15px 0px 20px;
+    padding-top: 120px;
+}
+#lyricsadd {
+    margin: 0px 15px 5px 20px;
+}
+.center {
+    display: flex;
+    justify-content: center;
+}
+.result{
+    text-align: center;
+}
+/* yeu cau bai hat */
+#request {
+    width: 64%;
+    margin: 25px;
+}
+#request p {
+    font-size: 13px;
+    font-weight: bold;
+}
+.longp {
+    margin: 0px 15px 5px 20px;
+}
+.inputdiv {
+    padding: 15px 0
+}
+/* lien he gop y */
+#suggestion {
+    width: 64%;
+    margin: 25px;
+}
+#suggestion p {
+    font-size: 13px;
+    font-weight: bold;
+}
+.longp {
+    margin: 0px 15px 5px 20px;
+}
+.inputdiv {
+    padding: 15px 0
+}
+.longtextarea1 {
+    width: 631px;
+    height: 150px;
+    margin: 0px 15px 5px 20px;
+    padding: 8px 2px 2px 8px;
+    border: 1px solid black;
+}
+/* dangnhap*/
+.left {
+    float: left;
+}
+#loginwith {
+    margin: 0px 15px 0px 20px;
+    padding-top: 65px;
+}
+#loginwith1 > .fa-facebook {
+    color: #3b5998;
+    margin: 10px 10px 0px 20px;
+    font-size: 30px;
+}
+#loginwith1 > .fa-google {
+    color: #de5246;
+    margin: 10px 5px 0px 0px;
+    font-size: 30px;
+}
+#loginbutton {
+    margin: 15px 5px 20px 20px;
+}

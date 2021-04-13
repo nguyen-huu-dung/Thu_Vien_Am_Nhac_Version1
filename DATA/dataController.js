@@ -1,5 +1,8 @@
 let musicsUrl = 'https://6073fb61066e7e0017e78b99.mockapi.io/api/thu-vien-am-nhac/musics';
 let adminsUrl = 'https://6073fb61066e7e0017e78b99.mockapi.io/api/thu-vien-am-nhac/admins';
+let uploadUrl = 'https://6073fb61066e7e0017e78b99.mockapi.io/api/thu-vien-am-nhac/uploadSongs';
+let requestUrl = 'https://6073fb61066e7e0017e78b99.mockapi.io/api/thu-vien-am-nhac/requestSongs';
+let suggestionsUrl = 'https://6074636d066e7e0017e79c51.mockapi.io/api/C4EJS110-THU-VIEN-AM-NHAC/suggestions';
 
 //Post data
 async function postData(url, data) {
@@ -43,7 +46,3 @@ async function deleteData(url, idData) {
     });
     return response.json();
 }
-
-
-
-
