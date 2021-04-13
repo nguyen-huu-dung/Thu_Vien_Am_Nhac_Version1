@@ -7,12 +7,14 @@
 /* day la phan header  */
 body {
     font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
+    min-width: 1080px;
 }
 #header {
     background: #094c72;
     position: fixed;
     top: 0;
     width: 100%; 
+    min-width: 1080px;
 }
 #header ul {
     background: #094c72;
@@ -376,11 +378,11 @@ hr {
     padding: 15px 0
 }
 /* lien he gop y */
-#suggestion {
+.contact {
     width: 64%;
     margin: 25px;
 }
-#suggestion p {
+.contact p {
     font-size: 13px;
     font-weight: bold;
 }
@@ -398,23 +400,45 @@ hr {
     border: 1px solid black;
 }
 /* dangnhap*/
-.left {
-    float: left;
+#login {
+    padding-top: 25px;
 }
-#loginwith {
-    margin: 0px 15px 0px 20px;
-    padding-top: 65px;
+.halfinput {
+    width: 200px;
+    border: 1px solid black;
+    padding: 2px 2px 2px 5px;
+    margin-bottom: 10px;
+    margin-left: 10px;
 }
-#loginwith1 > .fa-facebook {
+#longerinput {
+    width: 232px !important;
+}
+.loginp {
+    font-size: 13px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+#login > .body {
+    padding: 10px 20px 20px 20px;
+}
+#forgetpass {
+    font-size: 11px;
+    color: #094c72;
+    text-decoration: underline;
+    margin: -8px 0px 10px 0px !important;
+}
+#forgetpass:hover {
+    cursor: pointer;
+}
+#loginwith > .fa-facebook {
     color: #3b5998;
-    margin: 10px 10px 0px 20px;
     font-size: 30px;
 }
-#loginwith1 > .fa-google {
+#loginwith > .fa-google {
     color: #de5246;
-    margin: 10px 5px 0px 0px;
+    margin: 5px 0px 0px 10px;
     font-size: 30px;
 }
-#loginbutton {
-    margin: 15px 5px 20px 20px;
+.flex {
+    display: flex;
 }

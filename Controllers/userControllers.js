@@ -160,3 +160,11 @@ addSuggestionID.addEventListener('click', () => {
         document.querySelector("#suggestion form").reset();
     }
 })
+
+//process login 
+
+let loginID = document.getElementById("loginID");
+loginID.addEventListener('click', () => {
+    setPageNone();
+    document.getElementById("dangnhap").style.display = "block";
+})
