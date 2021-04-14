@@ -307,7 +307,7 @@
         </div>
         <div id="content">
 
-            <!--Page quany lý thư viện nhạc - Hoàng Mai-->
+            <!--Page quản lý thư viện nhạc - Hoàng Mai-->
             <div id="musicsAdmin" class="contentAdmin">
                 <p class="titleContent">Quản lý thư viện bài hát</p>
                 <div id="filter" style="display: flex;">
@@ -317,7 +317,7 @@
                         <button id="begginSearch">Tìm kiếm</button>
                         <label for="filterGenre">Thể Loại:</label>
                         <select id="filterGenre" form="filterForm" name="genreList">
-                            <option value="Tất cả">Tất cả</option>
+                            <option value="all">Tất cả</option>
                             <option value="Thể loại 1">Thể loại 1</option>
                             <option value="Thể loại 2">Thể loại 2</option>
                         </select>
@@ -349,6 +349,9 @@
                             </td>
                         </tr>
                     </table>
+                    <div class="xemthem" id="xemThemThuVien">
+                        <p>Xem thêm</p>
+                    </div>
                 </div>
             </div>
 
@@ -381,12 +384,20 @@
                             </td>
                         </tr>
                     </table>
+                    <div class="xemthem" id="xemThemBaiDang">
+                        <p>Xem thêm</p>
+                    </div>
                 </div>
             </div>
 
             <!--Page Quản lý yêu cầu bài hát - Dương Thành Đạt-->
             <div id="requestAdmin">
                 <p class="titleContent">Quản lý yêu cầu bài hát</p>
+                <select id="filterRequestSeen" form="filterForm" name="genreList">
+                    <option value="all">Tất cả</option>
+                    <option value="seen">Đã xem</option>
+                    <option value="notSeen">Chưa xem</option>
+                </select>
                 <div id="requestContent" class="tableContent">
                     <table>
                         <tr>
@@ -410,12 +421,20 @@
                             </td>
                         </tr>
                     </table>
+                    <div class="xemthem" id="xemThemYeuCau">
+                        <p>Xem thêm</p>
+                    </div>
                 </div>
             </div>
 
             <!--Page quản lý góp ý liên hệ - Dương Thành Đạt-->
             <div id="suggestionAdmin">
                 <p class="titleContent">Quản lý liên hệ góp ý</p>
+                <select id="filterSuggestSeen" form="filterForm" name="genreList">
+                    <option value="all">Tất cả</option>
+                    <option value="seen">Đã xem</option>
+                    <option value="notSeen">Chưa xem</option>
+                </select>
                 <div id="suggestionContent" class="tableContent">
                     <table>
                         <tr>
@@ -439,6 +458,9 @@
                             </td>
                         </tr>
                     </table>
+                    <div class="xemthem" id="xemThemGopY">
+                        <p>Xem thêm</p>
+                    </div>
                 </div>
             </div>
         </div>
