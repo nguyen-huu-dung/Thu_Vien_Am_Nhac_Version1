@@ -9,6 +9,8 @@ homePageID.addEventListener('click', () => {
 })
 
 async function getHomePage() {
+    setPageNone();
+    document.getElementById("homepage").style.display = "block";
     let response = await fetch(musicsUrl);
     let listMusics = await response.json();
     let listMusicsSortCountSeen = listMusics.sort((a, b) => { return b.countSeen - a.countSeen });
@@ -173,10 +175,10 @@ async function processLogin() {
     let response = await fetch(adminsUrl);
     let listAdmin = await response.json();
     let addLoginID = document.getElementById("addLogin");
+    let userNameLogin = document.getElementById("userName");
+    let passWordLogin = document.getElementById("passWord");
+    let resultLogin = document.getElementById("loginResult");
     addLoginID.addEventListener('click', () => {
-        let userNameLogin = document.getElementById("userName");
-        let passWordLogin = document.getElementById("passWord");
-        let resultLogin = document.getElementById("loginResult");
         if (userNameLogin.value == "" || passWordLogin.value == "") {
             resultLogin.style.color = "red";
             resultLogin.textContent = "Cần nhập đủ các trường!";
@@ -193,6 +195,7 @@ async function processLogin() {
                 setPageNone();
                 document.getElementById("adminHomePage").style.display = "block";
                 document.getElementById("header").style.display = "none";
+                document.getElementById("footer").style.display = "none";
                 document.querySelector("#login form").reset();
             }
             else {

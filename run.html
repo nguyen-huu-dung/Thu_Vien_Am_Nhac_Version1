@@ -15,7 +15,7 @@
     <div id="header">
         <ul class="animate__animated animate__fadeInDown">
             <li id="logo"><i class="fas fa-headphones-alt"></i> THƯ VIỆN ÂM NHẠC</li>
-            <li><input type="search" id="search" placeholder="Tìm theo bài hát hoặc ca sĩ"></li>
+            <li><input type="search" id="searchHomePage" placeholder="Tìm theo bài hát hoặc ca sĩ"></li>
             <li class="right" id="loginID">Đăng nhập</li>
             <li class="right" id="suggestionID">Liên hệ/Góp ý</li>
             <li class="right" id="requestID">Yêu cầu bài hát</li>
@@ -46,7 +46,14 @@
                 <img id="decorimg" src="" alt="">
             </div>
         </div>
-        <div class="bxh today">
+        <div class="bxhTL theLoai">
+            <div>
+                <h1 class="headingclickable">Thể Loại</h1>
+            </div>
+            <div>
+            </div>
+        </div>
+        <div class="bxhTL hayNhat">
             <div>
                 <h1 class="headingclickable">Top 100 bài hát hay nhất</h1>
             </div>
@@ -54,36 +61,6 @@
                 <ol id="musicHayNhat">
                 </ol>
                 <div class="xemthem" id="xemThemHayNhat">
-                    <p>Xem thêm</p>
-                </div>
-            </div>
-        </div>
-        <div class="bxh time">
-            <div>
-                <h1 class="headingclickable">Top 100 mọi thời đại</h1>
-            </div>
-            <div class="body xephang">
-                <ol id="musicThoiDai">
-                    <li>
-                        <p class="name">Livin' on a prayer</p>
-                        <p class="singer">- Bon Jovi</p>
-                        <p class="view"><i class="fas fa-headphones-alt"></i> 23712</p>
-                        <hr>
-                    </li>
-                    <li>
-                        <p class="name">I love rock n' roll</p>
-                        <p class="singer">- Joan Jett and the black hearts</p>
-                        <p class="view"><i class="fas fa-headphones-alt"></i> 26513</p>
-                        <hr>
-                    </li>
-                    <li>
-                        <p class="name">Long long long song name</p>
-                        <p class="singer">- Very long artist name</p>
-                        <p class="view"><i class="fas fa-headphones-alt"></i> 21673</p>
-                        <hr>
-                    </li>
-                </ol>
-                <div class="xemthem" id="xemThemThoiDai">
                     <p>Xem thêm</p>
                 </div>
             </div>
@@ -330,27 +307,11 @@
                             <th>Tên bài hát</th>
                             <th>Chức năng</th>
                         </tr>
-                        <tr>
-                            <td>
-                                <p>Tên bài hát 1 - Ca sĩ 1</p>
-                            </td>
-                            <td>
-                                <button>Update</button>
-                                <button>Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>Tên bài hát 2 - Ca sĩ 2</p>
-                            </td>
-                            <td>
-                                <button>Update</button>
-                                <button>Delete</button>
-                            </td>
-                        </tr>
                     </table>
-                    <div class="xemthem" id="xemThemThuVien">
-                        <p>Xem thêm</p>
+                    <div id="changePage">
+                        <button id="prePageMusic" class="changePage">&#8249;</button>
+                        <p id="countPageMusic">0</p>
+                        <button id="nextPageMusic" class="changePage">&#8250;</button>
                     </div>
                 </div>
             </div>
