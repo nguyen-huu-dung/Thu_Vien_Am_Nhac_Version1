@@ -7,14 +7,12 @@
 /* day la phan header  */
 body {
     font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
-    min-width: 1080px;
 }
 #header {
     background: #094c72;
     position: fixed;
     top: 0;
     width: 100%; 
-    min-width: 1080px;
 }
 #header ul {
     background: #094c72;
@@ -31,7 +29,6 @@ body {
 #searchHomePage {
     width: 300px;
     height: 22px;
-    margin: -12px;
     border-radius: 5px;
     padding: 8px;
 }
@@ -46,7 +43,41 @@ body {
     background: #055a8c;
     cursor: pointer;
 }
+
+#searchMusic{
+    background: white;
+    position: absolute;
+    width: 300px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#searchMusic li{
+    width: auto;
+    color: black;
+    height: 30px;
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(167, 219, 240, 0.19);
+    padding-top: 2px;
+}
+
+#searchMusic li:hover{
+    cursor: pointer;
+    background: rgb(146, 184, 196);
+}
+.nameSearch{
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.singerSearch{
+    font-size: 13px;
+}
+
 /* day la phan homepage + footer*/
+.homePageContent{
+    display: flex;
+}
 #banner {
     background-image: url("https://i.imgur.com/rxh17is.jpg");
     margin-top: 0px;
@@ -55,27 +86,8 @@ body {
     background-size: 100% 100%;
 }
 #bannertext {
-    padding-top: 140px;
+    padding-top: 170px;
     padding-left: 55%;
-}
-#bannerbutton {
-    position: absolute;
-    bottom: 140px;
-    right: 15px;
-    padding: 20px;
-    text-align: center;
-    font-size: 13px;
-    display: none;
-}
-.bannerbutton {
-    color: #e4f0f6;
-    padding: 0px 0px 8px 0px;
-    font-size: 18px;
-}
-.bannerbutton:hover {
-    color: #f9f9f9;
-    text-decoration: underline;
-    cursor: pointer;
 }
 #bannertext h2 {
     font-weight: bold;
@@ -104,18 +116,30 @@ body {
     background: #f9f9f9;
     margin-top: 40px;
 }
-#account {
-     width: 25%;
-     float: left;
-     margin: 40px 5px 40px 30px;
-}
+
 .bxhTL {
      float: left;
      margin: 2%;
      margin: 40px 5px 40px 5px;
 }
 .theLoai {
-     width: 35%
+     width: 33%;
+     float: left;
+     margin: 2%;
+     margin: 40px 5px 40px 5px;
+}
+#theLoais{
+    list-style-type: none;
+    font-weight: bolder;
+    text-align: center;
+}
+
+#theLoais li:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.theLoai img{
+    width: 60%;
 }
 .hayNhat {
      width: 33%
@@ -265,8 +289,7 @@ hr {
     float: right;
 }
 .xemthem {
-    display: flex;
-    justify-content: center;
+    text-align: center;
 }
 .xemthem p {
     color: #094c72;
@@ -405,10 +428,9 @@ hr {
 }
 .halfinput {
     width: 200px;
+    margin: 0px 15px 10px 20px;
+    padding: 2px 2px 2px 8px;
     border: 1px solid black;
-    padding: 2px 2px 2px 5px;
-    margin-bottom: 10px;
-    margin-left: 10px;
 }
 #longerinput {
     width: 232px !important;
@@ -532,4 +554,27 @@ table, th, td {
 
 #countPageMusic{
     padding: 8px 16px;
+}
+
+
+/*page music*/
+#pageMusic{
+    padding: 30px;
+}
+
+#pageMusicContent {
+    display: flex;
+    flex-direction: row;
+}
+
+#pageMusicLeft{
+    width: 60%;
+}
+
+#pageMusicRight{
+    width: 35%;
+}
+
+#pageMusicRight img{
+    width: 90%;
 }

@@ -1,8 +1,9 @@
 function setPageNone() {
-    let listIdPage = ["homepage", "pageMusic", "dangbaihat", "yeucaubaihat", "lienhegopy", "dangnhap", "adminHomePage"];
+    let listIdPage = ["homepage", "pageMusic", "dangbaihat", "yeucaubaihat", "lienhegopy", "dangnhap", "adminHomePage", "theLoaiContent", "logoHomePage", "searchMusic"];
     for (let x of listIdPage) {
-        document.getElementById(x).style.display = "none";
+        noneHTML(x);
     }
+    document.getElementById("searchHomePage").value = "";
     let iframeID = document.querySelector("#pageMusic iframe");
     if (iframeID != null) {
         iframeID.src = "";
@@ -23,7 +24,7 @@ function setInputNone() {
 function setChooseAdmin() {
     let listChoose = ["musicsAdmin", "uploadAdmin", "requestAdmin", "suggestionAdmin"];
     for (let x of listChoose) {
-        document.getElementById(x).style.display = "none";
+        noneHTML(x);
     }
 }
 
@@ -33,4 +34,19 @@ function setStyleChoose() {
         document.getElementById(x).style.background = "#094c72";
         document.getElementById(x).style.color = "white";
     }
+}
+
+function removeListHTML(domHTML){
+    let listHTML = document.querySelectorAll(domHTML);
+    for(let i=0; nodeHTML = listHTML[i]; ++i){
+        nodeHTML.remove();
+    }
+}
+
+function blockHTML(domHTML){
+    document.getElementById(domHTML).style.display = "block";
+}
+
+function noneHTML(domHTML){
+    document.getElementById(domHTML).style.display = "none";
 }

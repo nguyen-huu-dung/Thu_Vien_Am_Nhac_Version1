@@ -15,7 +15,11 @@
     <div id="header">
         <ul class="animate__animated animate__fadeInDown">
             <li id="logo"><i class="fas fa-headphones-alt"></i> THƯ VIỆN ÂM NHẠC</li>
-            <li><input type="search" id="searchHomePage" placeholder="Tìm theo bài hát hoặc ca sĩ"></li>
+            <li>
+                <div><input type="search" id="searchHomePage" placeholder="Tìm theo bài hát hoặc ca sĩ"></div>
+                <ol id="searchMusic">
+                </ol>
+            </li>
             <li class="right" id="loginID">Đăng nhập</li>
             <li class="right" id="suggestionID">Liên hệ/Góp ý</li>
             <li class="right" id="requestID">Yêu cầu bài hát</li>
@@ -28,46 +32,84 @@
             <div id="bannertext">
                 <h2><i class="fas fa-headphones-alt"></i> THƯ VIỆN ÂM NHẠC</h2>
                 <p id="des">Hệ thống chia sẻ nhạc lớn nhất Việt Nam. Hàng trăm bài hát mới mỗi tuần.</p>
-                <br>
-                <br>
-                <p class="bannerbutton" id="theloai">Thể loại →</p>
             </div>
         </div>
-        <div id="account">
-            <div>
-                <h1 class="headingclickable">Thư viện của tôi</h1>
+        <div class="homePageContent">
+            <div class="bxhTL hayNhat">
+                <div>
+                    <h1 class="headingclickable">Top 100 bài hát hay nhất</h1>
+                </div>
+                <div class="body xephang">
+                    <ol id="musicHayNhat">
+                    </ol>
+                    <div class="xemthem" id="xemThemHayNhat">
+                        <p>Xem thêm</p>
+                    </div>
+                </div>
             </div>
-            <div class="body account">
-                <p id="login">Lưu bài hát yêu thích, tạo playlist, ghi chú, bình luận và hơn thế nữa!</p>
-                <button type="button" class="button1">Đăng nhập</button>
-                <button type="button" class="button2">Đăng ký</button>
-                <p id="quote">"Tiếng nhạc chỉ cất lên khi con tim bạn đã sẵn sàng đồng cảm."</p>
-                <p id="cite">𑁋 Gerard Way</p>
-                <img id="decorimg" src="" alt="">
+            <div class="theLoai">
+                <div>
+                    <h1 class="headingclickable">Thể Loại</h1>
+                </div>
+                <div class="theLoais">
+                    <ul id="theLoais">
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="bxhTL theLoai">
-            <div>
-                <h1 class="headingclickable">Thể Loại</h1>
-            </div>
-            <div>
-            </div>
-        </div>
-        <div class="bxhTL hayNhat">
-            <div>
-                <h1 class="headingclickable">Top 100 bài hát hay nhất</h1>
-            </div>
-            <div class="body xephang">
-                <ol id="musicHayNhat">
-                </ol>
-                <div class="xemthem" id="xemThemHayNhat">
-                    <p>Xem thêm</p>
+            <div class="theLoai theLoaiContent">
+                <img src="/IMAGE/logo.PNG" alt="logo thu vien am nhac" id="logoHomePage">
+                <div id="theLoaiContent">
+                    <div>
+                        <h1 class="headingclickable"></h1>
+                    </div>
+                    <div class="body xephang">
+                        <ol id="musicTheLoai">
+                        </ol>
+                        <div class="xemthem" id="xemThemMusicsTheLoai">
+                            <p>Xem thêm</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div id="pageMusic">
-        <iframe src="" width="620" height="382" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+    <div id="pageMusic" class="container">
+        <div id="pageMusicContent">
+            <div id="pageMusicLeft">
+                <div id="titlePageMusic">
+                    <p id="nameMusic"></p>
+                    <p id="singerTitleMusic"></p>
+                </div>
+                <div id="iframePageMusic">
+                    <iframe src="" width="620" height="320" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+                </div>
+                <div id="infoMusic">
+                    <div id="singerAuthorMusic">
+                        <p id="authorMusic"></p>
+                        <p id="singerMusic"></p>
+                    </div>
+                    <div id="lyricsMusic">
+                    </div>
+                </div>
+            </div>
+            <div id="pageMusicRight">
+                <div id="musicSameGenre">
+                    <div>
+                        <h1 class="headingclickable"></h1>
+                    </div>
+                    <div class="body xephang">
+                        <ol id="musicSame">
+                        </ol>
+                        <div class="xemthem" id="xemThemMusicsSame">
+                            <p>Xem thêm</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="/IMAGE/logo.PNG" alt="logo thu vien am nhac">
+                </div>
+            </div>
+        </div>
     </div>
     <!-- Hello, this is dang bai hat -->
     <div id="dangbaihat" class="container">
@@ -287,19 +329,42 @@
             <!--Page quản lý thư viện nhạc - Hoàng Mai-->
             <div id="musicsAdmin" class="contentAdmin">
                 <p class="titleContent">Quản lý thư viện bài hát</p>
+                <form style="display: flex; flex-direction: column;">
+                    <div style="display: flex; flex-direction: row;">
+                        <div style="display: flex; flex-direction: column;">
+                            <label for="nameMusicAdmin">Tên bài hát:</label>
+                            <input class="halfinput" type="text" id="nameMusicAdmin" placeholder="name...">
+                            <label for="authorMusicAdmin">Sáng tác:</label>
+                            <input class="halfinput" type="text" id="authorMusicAdmin" placeholder="author...">
+                        </div>
+                        <div style="display: flex; flex-direction: column;">
+                            <label for="singerMusicAdmin">Ca sĩ:</label>
+                            <input class="halfinput" type="text" id="singerMusicAdmin" placeholder="singer...">
+                            <label for="genreMusicAdmin">Thể loại:</label>
+                            <input class="halfinput" type="text" id="genreMusicAdmin" placeholder="genre...">
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: column;">
+                        <label for="iframeMusicAdmin">Iframe Url:</label>
+                        <input class="longinput" type="text" id="iframeMusicAdmin" placeholder="iframeUrl...">
+                        <label for="lyricsMusicAdmin">Lời bài hát:</label>
+                        <textarea class="longtextarea" id="lyricsMusicAdmin" placeholder="lyrics..."></textarea>
+                    </div>
+                </form>
+                <p id="resultMusicAdmin"></p>
+                <div style="display: flex; flex-direction: row;">
+                    <button id="clearMusicAdmin">Clear</button>
+                    <button id="updateMusicAdmin">Update</button>
+                    <button id="addMusicAdmin">Add</button>
+                </div>
                 <div id="filter" style="display: flex;">
-                    <form id="search">
-                        <label for="searchID">Tìm kiếm</label>
-                        <input type="text" id="searchID">
-                        <button id="begginSearch">Tìm kiếm</button>
-                        <label for="filterGenre">Thể Loại:</label>
-                        <select id="filterGenre" form="filterForm" name="genreList">
-                            <option value="all">Tất cả</option>
-                            <option value="Thể loại 1">Thể loại 1</option>
-                            <option value="Thể loại 2">Thể loại 2</option>
-                        </select>
-                    </form>
-                    <button id="addNewMusic">Thêm bài hát</button>
+                    <label for="searchID">Tìm kiếm</label>
+                    <input type="text" id="searchID" placeholder="Tên bài hát or ca sĩ...">
+                    <button id="beginSearch">Tìm kiếm</button>
+                    <label for="filterGenre">Thể Loại:</label>
+                    <select id="filterGenre" form="filterForm" name="genreList">
+                        <option value="all">Tất cả</option>
+                    </select>
                 </div>
                 <div id="musicsContent" class="tableContent">
                     <table>
@@ -309,9 +374,9 @@
                         </tr>
                     </table>
                     <div id="changePage">
-                        <button id="prePageMusic" class="changePage">&#8249;</button>
-                        <p id="countPageMusic">0</p>
-                        <button id="nextPageMusic" class="changePage">&#8250;</button>
+                        
+                        <p id="countPageMusic">1</p>
+
                     </div>
                 </div>
             </div>
@@ -428,14 +493,6 @@
     </div>
 
 
-
-
-
-
-
-
-
-
     <!-- Hello, this is footer -->
     <div id="footer">
         <ul>
@@ -464,6 +521,7 @@
     <script src="/Controllers/adminController.js"></script>
     <script src="/Controllers/changePageControllers.js"></script>
     <script src="/Controllers/userControllers.js"></script>
+    <script src="/Controllers/changeString.js"></script>
 </body>
 
 </html>
