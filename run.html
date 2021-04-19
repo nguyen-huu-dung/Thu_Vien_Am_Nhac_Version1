@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" />
+    <meta name="description" content="width=device-width, initial-scale=1" />
     <title>Thư Viện Âm Nhạc</title>
     <link rel="stylesheet" href="/CSS/main.css" />
     <script src="https://kit.fontawesome.com/dfb7590c37.js" crossorigin="anonymous"></script>
@@ -24,6 +24,11 @@
             <li class="right" id="suggestionID">Liên hệ/Góp ý</li>
             <li class="right" id="requestID">Yêu cầu bài hát</li>
             <li class="right" id="uploadID">Đăng bài hát</li>
+            <li class="right" id="theLoaiID">
+                <p>Thể loại</p>
+                <ol id="theLoai">
+                </ol>
+            </li>
         </ul>
     </div>
     <!-- Hello, this is trang chu -->
@@ -45,15 +50,6 @@
                     <div class="xemthem" id="xemThemHayNhat">
                         <p>Xem thêm</p>
                     </div>
-                </div>
-            </div>
-            <div class="theLoai">
-                <div>
-                    <h1 class="headingclickable">Thể Loại</h1>
-                </div>
-                <div class="theLoais">
-                    <ul id="theLoais">
-                    </ul>
                 </div>
             </div>
             <div class="theLoai theLoaiContent">
@@ -311,7 +307,7 @@
     </div>
 
 
-    <!-- Phần mọi người làm-->
+    <!-- Phần mọi người làm / Page Admin-->
 
 
     <div id="adminHomePage">
@@ -329,199 +325,179 @@
             <!--Page quản lý thư viện nhạc - Hoàng Mai-->
             <div id="musicsAdmin" class="contentAdmin">
                 <p class="titleContent">Quản lý thư viện bài hát</p>
-                <form style="display: flex; flex-direction: column;">
-                    <div style="display: flex; flex-direction: row;">
-                        <div style="display: flex; flex-direction: column;">
-                            <label for="nameMusicAdmin">Tên bài hát:</label>
-                            <input class="halfinput" type="text" id="nameMusicAdmin" placeholder="name...">
-                            <label for="authorMusicAdmin">Sáng tác:</label>
-                            <input class="halfinput" type="text" id="authorMusicAdmin" placeholder="author...">
+                <div id="MusicContent">
+                    <form style="display: flex; flex-direction: column;">
+                        <div style="display: flex; flex-direction: row;">
+                            <div style="display: flex; flex-direction: column;">
+                                <label for="nameMusicAdmin">Tên bài hát:</label>
+                                <input class="halfinput" type="text" id="nameMusicAdmin" placeholder="name...">
+                                <label for="authorMusicAdmin">Sáng tác:</label>
+                                <input class="halfinput" type="text" id="authorMusicAdmin" placeholder="author...">
+                            </div>
+                            <div style="display: flex; flex-direction: column;">
+                                <label for="singerMusicAdmin">Ca sĩ:</label>
+                                <input class="halfinput" type="text" id="singerMusicAdmin" placeholder="singer...">
+                                <label for="genreMusicAdmin">Thể loại:</label>
+                                <input class="halfinput" type="text" id="genreMusicAdmin" placeholder="genre...">
+                            </div>
                         </div>
                         <div style="display: flex; flex-direction: column;">
-                            <label for="singerMusicAdmin">Ca sĩ:</label>
-                            <input class="halfinput" type="text" id="singerMusicAdmin" placeholder="singer...">
-                            <label for="genreMusicAdmin">Thể loại:</label>
-                            <input class="halfinput" type="text" id="genreMusicAdmin" placeholder="genre...">
+                            <label for="iframeMusicAdmin">Iframe Url:</label>
+                            <input class="longinput" type="text" id="iframeMusicAdmin" placeholder="iframeUrl...">
+                            <label for="lyricsMusicAdmin">Lời bài hát:</label>
+                            <textarea class="longtextarea" id="lyricsMusicAdmin" placeholder="lyrics..."></textarea>
                         </div>
+                    </form>
+                    <p id="resultMusicAdmin"></p>
+                    <div id="buttonMusicAdmin" style="display: flex; flex-direction: row;">
+                        <button id="clearMusicAdmin">Clear</button>
+                        <button id="addMusicAdmin">Add</button>
                     </div>
-                    <div style="display: flex; flex-direction: column;">
-                        <label for="iframeMusicAdmin">Iframe Url:</label>
-                        <input class="longinput" type="text" id="iframeMusicAdmin" placeholder="iframeUrl...">
-                        <label for="lyricsMusicAdmin">Lời bài hát:</label>
-                        <textarea class="longtextarea" id="lyricsMusicAdmin" placeholder="lyrics..."></textarea>
+                    <div id="filter" style="display: flex;">
+                        <label for="searchID">Tìm kiếm</label>
+                        <input type="text" id="searchID" placeholder="Tên bài hát or ca sĩ...">
+                        <label for="filterAdminMusic">Thể Loại:</label>
+                        <select id="filterAdminMusic" form="filterForm" name="genreList">
+                            <option value="all">Tất cả</option>
+                        </select>
                     </div>
-                </form>
-                <p id="resultMusicAdmin"></p>
-                <div style="display: flex; flex-direction: row;">
-                    <button id="clearMusicAdmin">Clear</button>
-                    <button id="updateMusicAdmin">Update</button>
-                    <button id="addMusicAdmin">Add</button>
-                </div>
-                <div id="filter" style="display: flex;">
-                    <label for="searchID">Tìm kiếm</label>
-                    <input type="text" id="searchID" placeholder="Tên bài hát or ca sĩ...">
-                    <button id="beginSearch">Tìm kiếm</button>
-                    <label for="filterGenre">Thể Loại:</label>
-                    <select id="filterGenre" form="filterForm" name="genreList">
-                        <option value="all">Tất cả</option>
-                    </select>
-                </div>
-                <div id="musicsContent" class="tableContent">
-                    <table>
+                    <table class="tableContent">
                         <tr>
                             <th>Tên bài hát</th>
                             <th>Chức năng</th>
                         </tr>
                     </table>
-                    <div id="changePage">
-                        
-                        <p id="countPageMusic">1</p>
-
+                    <div id="changePageMusic" class="change">
+                        <p id="countPageMusic" class="countPage">1</p>
                     </div>
                 </div>
+                <p id="noDataMusic" class="noData">Không có dữ liệu</p>
             </div>
 
 
             <!--Page quản lý đăng bài hát - Vũ Hoàng Việt Dũng-->
             <div id="uploadAdmin" class="contentAdmin">
                 <p class="titleContent">Quản lý đăng bài hát</p>
-                <div id="uploadContent" class="tableContent">
-                    <table>
+                <div id="UploadContent">
+                    <form style="display: flex; flex-direction: column;">
+                        <div style="display: flex; flex-direction: row;">
+                            <div style="display: flex; flex-direction: column;">
+                                <label for="nameUploadAdmin">Tên bài hát:</label>
+                                <input class="halfinput" type="text" id="nameUploadAdmin" placeholder="name...">
+                                <label for="authorUploadAdmin">Sáng tác:</label>
+                                <input class="halfinput" type="text" id="authorUploadAdmin" placeholder="author...">
+                            </div>
+                            <div style="display: flex; flex-direction: column;">
+                                <label for="singerUploadAdmin">Ca sĩ:</label>
+                                <input class="halfinput" type="text" id="singerUploadAdmin" placeholder="singer...">
+                                <label for="genreUploadAdmin">Thể loại:</label>
+                                <input class="halfinput" type="text" id="genreUploadAdmin" placeholder="genre...">
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column;">
+                            <label for="iframeUploadAdmin">Iframe Url:</label>
+                            <input class="longinput" type="text" id="iframeUploadAdmin" placeholder="iframeUrl...">
+                            <label for="lyricsUploadAdmin">Lời bài hát:</label>
+                            <textarea class="longtextarea" id="lyricsUploadAdmin" placeholder="lyrics..."></textarea>
+                        </div>
+                    </form>
+                    <p id="resultUploadAdmin"></p>
+                    <div id="buttonUploadAdmin" style="display: flex; flex-direction: row;">
+                        <button id="clearUploadAdmin">Clear</button>
+                    </div>
+                    <select id="filterAdminUpload" form="filterForm" name="genreList">
+                        <option value="all">Tất cả</option>
+                        <option value="Chưa xem">Chưa xem</option>
+                        <option value="Đã xem">Đã xem</option>
+                    </select>
+                    <table class="tableContent">
                         <tr>
-                            <th>Bài hát đăng</th>
+                            <th>Tên bài hát</th>
                             <th>Chức năng</th>
                         </tr>
-                        <tr>
-                            <td>
-                                <p>Tên bài hát 1 - Ca sĩ 1</p>
-                            </td>
-                            <td>
-                                <button>Add</button>
-                                <button>Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>Tên bài hát 2 - Ca sĩ 2</p>
-                            </td>
-                            <td>
-                                <button>Add</button>
-                                <button>Delete</button>
-                            </td>
-                        </tr>
                     </table>
-                    <div class="xemthem" id="xemThemBaiDang">
-                        <p>Xem thêm</p>
+                    <div id="changePageUpload" class="change">
+                        <p id="countPageUpload" class="countPage">1</p>
                     </div>
                 </div>
+                <p id="noDataUpload" class="noData">Không có dữ liệu</p>
             </div>
 
             <!--Page Quản lý yêu cầu bài hát - Dương Thành Đạt-->
-            <div id="requestAdmin">
+            <div id="requestAdmin" class="contentAdmin">
                 <p class="titleContent">Quản lý yêu cầu bài hát</p>
-                <select id="filterRequestSeen" form="filterForm" name="genreList">
-                    <option value="all">Tất cả</option>
-                    <option value="seen">Đã xem</option>
-                    <option value="notSeen">Chưa xem</option>
-                </select>
-                <div id="requestContent" class="tableContent">
-                    <table>
+                <div id="RequestContent">
+                    <p id="resultRequestAdmin"></p>
+                    <table class="tableContent">
                         <tr>
-                            <th>Bài hát yêu cầu</th>
+                            <th>Tên bài hát</th>
                             <th>Chức năng</th>
                         </tr>
-                        <tr>
-                            <td>
-                                <p>Tên bài hát 1 - Ca sĩ 1 - (chưa xem or đã xem)</p>
-                            </td>
-                            <td>
-                                <button>Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>Tên bài hát 2 - Ca sĩ 2 - (chưa xem or đã xem)</p>
-                            </td>
-                            <td>
-                                <button>Delete</button>
-                            </td>
-                        </tr>
                     </table>
-                    <div class="xemthem" id="xemThemYeuCau">
-                        <p>Xem thêm</p>
+                    <div id="changePageRequest" class="change">
+                        <p id="countPageRequest" class="countPage">1</p>
                     </div>
                 </div>
+                <p id="noDataRequest" class="noData">Không có dữ liệu</p>
             </div>
 
             <!--Page quản lý góp ý liên hệ - Dương Thành Đạt-->
-            <div id="suggestionAdmin">
+            <div id="suggestionAdmin" class="contentAdmin">
                 <p class="titleContent">Quản lý liên hệ góp ý</p>
-                <select id="filterSuggestSeen" form="filterForm" name="genreList">
-                    <option value="all">Tất cả</option>
-                    <option value="seen">Đã xem</option>
-                    <option value="notSeen">Chưa xem</option>
-                </select>
-                <div id="suggestionContent" class="tableContent">
-                    <table>
+                <p>Nội dung:</p>
+                <div id="viewSuggestion">
+                </div>
+                <div id="SuggestionContent">
+                    <p id="resultSuggestionAdmin"></p>
+                    <select id="filterAdminSuggestion" form="filterForm" name="genreList">
+                        <option value="all">Tất cả</option>
+                        <option value="Chưa xem">Chưa xem</option>
+                        <option value="Đã xem">Đã xem</option>
+                    </select>
+                    <table class="tableContent">
                         <tr>
-                            <th>Liên hệ/Góp ý</th>
+                            <th>Liên hệ / Góp ý</th>
                             <th>Chức năng</th>
                         </tr>
-                        <tr>
-                            <td>
-                                <p>Chủ đề 1 - (chưa xem or đã xem)</p>
-                            </td>
-                            <td>
-                                <button>Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>Chủ đề 2 - (chưa xem or đã xem)</p>
-                            </td>
-                            <td>
-                                <button>Delete</button>
-                            </td>
-                        </tr>
                     </table>
-                    <div class="xemthem" id="xemThemGopY">
-                        <p>Xem thêm</p>
+                    <div id="changePageSuggestion" class="change">
+                        <p id="countPageSuggestion" class="countPage">1</p>
                     </div>
                 </div>
+                <p id="noDataSuggestion" class="noData">Không có dữ liệu</p>
             </div>
-        </div>
-    </div>
 
 
-    <!-- Hello, this is footer -->
-    <div id="footer">
-        <ul>
-            <li>
-                <i class="fab fa-app-store"></i>
-            </li>
-            <li>
-                <i class="fab fa-google-play"></i>
-            </li>
-            <li>
-                <i class="fab fa-facebook-square"></i>
-            </li>
-            <li>
-                <i class="fab fa-instagram"></i>
-            </li>
-            <li class="right">
-                <p>
-                    Powered by @nhom1
-                    <br>
-                    © 2021 thuvienamnhac.com. All rights reserved
-                </p>
-            </li>
-        </ul>
-    </div>
-    <script src="/DATA/dataController.js"></script>
-    <script src="/Controllers/adminController.js"></script>
-    <script src="/Controllers/changePageControllers.js"></script>
-    <script src="/Controllers/userControllers.js"></script>
-    <script src="/Controllers/changeString.js"></script>
+
+            <!-- Hello, this is footer -->
+            <div id="footer">
+                <ul>
+                    <li>
+                        <i class="fab fa-app-store"></i>
+                    </li>
+                    <li>
+                        <i class="fab fa-google-play"></i>
+                    </li>
+                    <li>
+                        <i class="fab fa-facebook-square"></i>
+                    </li>
+                    <li>
+                        <i class="fab fa-instagram"></i>
+                    </li>
+                    <li class="right">
+                        <p>
+                            Powered by @nhom1
+                            <br>
+                            © 2021 thuvienamnhac.com. All rights reserved
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <script src="/DATA/dataController.js"></script>
+            <script src="/Controllers/adminController.js"></script>
+            <script src="/Controllers/changePageControllers.js"></script>
+            <script src="/Controllers/userControllers.js"></script>
+            <script src="/Controllers/changeString.js"></script>
 </body>
 
 </html>

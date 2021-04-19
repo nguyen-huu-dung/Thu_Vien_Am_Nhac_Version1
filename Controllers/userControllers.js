@@ -13,7 +13,7 @@ async function getHomePage() {
     setPageNone();
     blockHTML("homepage");
     blockHTML("logoHomePage");
-    let response = await fetch(musicsUrl);
+    let response = await fetch(musicUrl);
     let listMusics = await response.json();
     let listMusicsSortCountSeen = listMusics.sort((a, b) => { return b.countSeen - a.countSeen });
     getMusicsDB(listMusicsSortCountSeen, "musicHayNhat", "xemThemHayNhat");
@@ -61,7 +61,16 @@ async function getHomePage() {
         }
     })
 }
+//process hover the loai
+let theLoai = document.getElementById("theLoaiID");
+theLoai.addEventListener('mouseover', () => {
+    document.getElementById("theLoai").style.display = "flex";
+})
+theLoai.addEventListener('mouseout', () => {
+    document.getElementById("theLoai").style.display = "none";
+})
 
+// get music from database
 function getMusicsDB(listMusics = [], contentHTMLID, xemThemID) {
     let listMusicsID = document.getElementById(contentHTMLID);
     let xemThem = document.querySelector(`#${xemThemID} p`);
@@ -104,14 +113,14 @@ function getMusicsDB(listMusics = [], contentHTMLID, xemThemID) {
 }
 
 function getGenreHomePage(listMusicsGenre = {}) {
-    let listGenreID = document.getElementById("theLoais");
+    let listGenreID = document.getElementById("theLoai");
     for (let i in listMusicsGenre) {
         listGenreID.insertAdjacentHTML('beforeend', `<li onclick = "getMusicsGenre('${listMusicsGenre[i][0].genre.toUpperCase()}')"> ${i}</li>`);
     }
 }
 
 async function getMusicsGenre(gen) {
-    let response = await fetch(musicsUrl);
+    let response = await fetch(musicUrl);
     let listMusics = await response.json();
     let listMusicsGenre = {};
     for (let x of listMusics) {
@@ -138,7 +147,7 @@ async function getMusicsGenre(gen) {
 
 function getResetHomePage() {
     removeListHTML("#musicHayNhat li");
-    removeListHTML("#theLoais li");
+    removeListHTML("#theLoai li");
     removeListHTML("#musicTheLoai li");
     removeListHTML("#xemThemMusicsTheLoai p");
     removeListHTML("#xemThemHayNhat p");
@@ -158,7 +167,7 @@ getHomePage();
 //process page music
 
 async function getPageMusic(musicID) {
-    let response = await fetch(musicsUrl);
+    let response = await fetch(musicUrl);
     let listMusics = await response.json();
 
     let index = 0;
@@ -168,7 +177,7 @@ async function getPageMusic(musicID) {
     }
     let musicUpdate = listMusics[index];
     musicUpdate.countSeen += 1;
-    updateData(musicsUrl, musicID, musicUpdate);
+    updateData(musicUrl, musicID, musicUpdate);
 
     // set page music display to block
     setPageNone();
@@ -220,7 +229,7 @@ addUploadID.addEventListener('click', () => {
     }
     else {
         resultUpLoad.style.color = "green";
-        resultUpLoad.textContent = "Thành công! Đang chờ admin xét duyệt!"
+        resultUpLoad.textContent = "Thành công! Đang chờ admin xét duyệt!";
         let musicUpLoad = {
             name: nameUpload.value,
             author: authorUpload.value,
@@ -228,9 +237,13 @@ addUploadID.addEventListener('click', () => {
             genre: genreUpload.value,
             lyrics: lyricsUpload.value,
             iframeUrl: iframeUrlUpload.value,
+            checkSeen: "Chưa xem"
         }
         postData(uploadUrl, musicUpLoad);
         document.querySelector("#upload form").reset();
+        setTimeout(() => {
+            resultUpLoad.textContent = "";
+        }, 500)
     }
 })
 
@@ -256,6 +269,9 @@ addRequestID.addEventListener('click', () => {
         resultRequest.textContent = "Thành công! Đang chờ admin xử lý!"
         postData(requestUrl, { name: nameRequest.value, singerAuthor: singerAuthorRequest.value, checkSeen: "Not seen" });
         document.querySelector("#request form").reset();
+        setTimeout(() => {
+            resultRequest.textContent = "";
+        }, 500)
     }
 })
 
@@ -279,8 +295,11 @@ addSuggestionID.addEventListener('click', () => {
     else {
         resultSuggestion.style.color = "green";
         resultSuggestion.textContent = "Hệ thống đã ghi nhận! Cảm ơn bạn đã góp ý!"
-        postData(suggestionsUrl, { email: emailSuggestion.value, subject: subjectSuggestion.value, content: contentSuggestion.value, checkSeen: "Not seen" });
+        postData(suggestionUrl, { email: emailSuggestion.value, subject: subjectSuggestion.value, content: contentSuggestion.value, checkSeen: "Chưa xem" });
         document.querySelector("#suggestion form").reset();
+        setTimeout(() => {
+            resultSuggestion.textContent = "";
+        }, 500)
     }
 })
 
@@ -293,7 +312,7 @@ loginID.addEventListener('click', () => {
 })
 
 async function processLogin() {
-    let response = await fetch(adminsUrl);
+    let response = await fetch(adminUrl);
     let listAdmin = await response.json();
     let addLoginID = document.getElementById("addLogin");
     let userNameLogin = document.getElementById("userName");

@@ -22,6 +22,7 @@ body {
     padding-right: 15px;
 }
 #header li {
+    margin-bottom: 0px;
     display: inline-block;
     padding: 12px 15px 12px 15px;
     font-size: 15px;
@@ -40,7 +41,7 @@ body {
     float: right;
 }
 #header .right:hover {
-    background: #055a8c;
+    color: rgb(116, 171, 216);
     cursor: pointer;
 }
 
@@ -74,6 +75,21 @@ body {
     font-size: 13px;
 }
 
+#theLoai{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    color: black;
+    margin: 14px -2px;
+}
+#theLoai li{
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(167, 219, 240, 0.19);
+}
+#theLoai li:hover{
+    cursor: pointer;
+    background: rgb(146, 184, 196);
+}
 /* day la phan homepage + footer*/
 .homePageContent{
     display: flex;
@@ -127,16 +143,6 @@ body {
      float: left;
      margin: 2%;
      margin: 40px 5px 40px 5px;
-}
-#theLoais{
-    list-style-type: none;
-    font-weight: bolder;
-    text-align: center;
-}
-
-#theLoais li:hover{
-    text-decoration: underline;
-    cursor: pointer;
 }
 .theLoai img{
     width: 60%;
@@ -545,14 +551,14 @@ table, th, td {
     background-color: #ddd;
 }
 
-#changePage {
+.change {
     text-align: center;
     display: flex;
     justify-content: center;
     margin-top: 10px;
 }
 
-#countPageMusic{
+.countPage{
     padding: 8px 16px;
 }
 
@@ -577,4 +583,20 @@ table, th, td {
 
 #pageMusicRight img{
     width: 90%;
+}
+
+#viewSuggestion{
+    width: 50%;
+    height: 240px;
+    border: 1px solid black;
+}
+
+.suggest{
+    cursor: pointer;
+}
+
+.noData{
+    text-align: center;
+    font-weight: bolder;
+    display: none;
 }
