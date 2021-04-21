@@ -3,34 +3,64 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thư Viện Âm Nhạc</title>
-    <link rel="stylesheet" href="/CSS/main.css" />
+    <link rel="stylesheet" href="./CSS/main1.css" />
     <script src="https://kit.fontawesome.com/dfb7590c37.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
-<body>
+<body id="body">
     <!-- Hello, this is header -->
-    <div id="header">
-        <ul class="animate__animated animate__fadeInDown">
-            <li id="logo"><i class="fas fa-headphones-alt"></i> THƯ VIỆN ÂM NHẠC</li>
-            <li>
-                <div><input type="search" id="searchHomePage" placeholder="Tìm theo bài hát hoặc ca sĩ"></div>
+
+    <div id="header" class="animate__animated animate__fadeInDown">
+        <div id="listMenuID" class="listMenu">
+            <ul>
+                <li class="theLoaiID">
+                    <p>Thể loại</p>
+                    <ol class="theLoai viewTL">
+                    </ol>
+                </li>
+                <li>
+                    <p class="uploadID">Đăng bài hát</p>
+                </li>
+                <li>
+                    <p class="requestID">Yêu cầu bài hát</p>
+                </li>
+                <li>
+                    <p class="suggestionID">Góp ý</p>
+                </li>
+                <li>
+                    <p class="loginID">Đăng nhập</p>
+                </li>
+            </ul>
+        </div>
+        <div class="leftHeader">
+            <i class="iconHeader fa fa-bars" id="iconMenu" onclick="showMenu()"></i>
+            <a id="logo" class="viewLogo"><i class="fas fa-headphones-alt"></i> THƯ VIỆN ÂM NHẠC</a>
+            <div id="viewSearchID" class="viewSearch">
+                <input type="search" id="searchHomePage" placeholder="Tìm theo bài hát hoặc ca sĩ">
                 <ol id="searchMusic">
                 </ol>
-            </li>
-            <li class="right" id="loginID">Đăng nhập</li>
-            <li class="right" id="suggestionID">Liên hệ/Góp ý</li>
-            <li class="right" id="requestID">Yêu cầu bài hát</li>
-            <li class="right" id="uploadID">Đăng bài hát</li>
-            <li class="right" id="theLoaiID">
+            </div>
+            <i class="iconHeader fa fa-search" id="iconSearch" onclick="viewSearchHeader()"></i>
+        </div>
+        <div class="rightHeader" id="rightMenuID">
+            <a class="loginID">Đăng nhập</a>
+            <a class="suggestionID">Góp ý</a>
+            <a class="requestID">Yêu cầu bài hát</a>
+            <a class="uploadID">Đăng bài hát</a>
+            <a class="theLoaiID">
                 <p>Thể loại</p>
-                <ol id="theLoai">
+                <ol class="theLoai">
                 </ol>
-            </li>
-        </ul>
+            </a>
+        </div>
     </div>
+
+
+
     <!-- Hello, this is trang chu -->
     <div id="homepage" class="container">
         <div id="banner">
@@ -40,19 +70,7 @@
             </div>
         </div>
         <div class="homePageContent">
-            <div class="bxhTL hayNhat">
-                <div>
-                    <h1 class="headingclickable">Top 100 bài hát hay nhất</h1>
-                </div>
-                <div class="body xephang">
-                    <ol id="musicHayNhat">
-                    </ol>
-                    <div class="xemthem" id="xemThemHayNhat">
-                        <p>Xem thêm</p>
-                    </div>
-                </div>
-            </div>
-            <div class="theLoai theLoaiContent">
+            <div class="listHomePage theLoaiContent">
                 <img src="/IMAGE/logo.PNG" alt="logo thu vien am nhac" id="logoHomePage">
                 <div id="theLoaiContent">
                     <div>
@@ -64,6 +82,18 @@
                         <div class="xemthem" id="xemThemMusicsTheLoai">
                             <p>Xem thêm</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="listHomePage">
+                <div>
+                    <h1 class="headingclickable">Top 100 bài hát hay nhất</h1>
+                </div>
+                <div class="body xephang">
+                    <ol id="musicHayNhat">
+                    </ol>
+                    <div class="xemthem" id="xemThemHayNhat">
+                        <p>Xem thêm</p>
                     </div>
                 </div>
             </div>
@@ -466,38 +496,38 @@
                 </div>
                 <p id="noDataSuggestion" class="noData">Không có dữ liệu</p>
             </div>
+        </div>
+    </div>
 
-
-
-            <!-- Hello, this is footer -->
-            <div id="footer">
-                <ul>
-                    <li>
-                        <i class="fab fa-app-store"></i>
-                    </li>
-                    <li>
-                        <i class="fab fa-google-play"></i>
-                    </li>
-                    <li>
-                        <i class="fab fa-facebook-square"></i>
-                    </li>
-                    <li>
-                        <i class="fab fa-instagram"></i>
-                    </li>
-                    <li class="right">
-                        <p>
-                            Powered by @nhom1
-                            <br>
-                            © 2021 thuvienamnhac.com. All rights reserved
-                        </p>
-                    </li>
-                </ul>
-            </div>
-            <script src="/DATA/dataController.js"></script>
-            <script src="/Controllers/adminController.js"></script>
-            <script src="/Controllers/changePageControllers.js"></script>
-            <script src="/Controllers/userControllers.js"></script>
-            <script src="/Controllers/changeString.js"></script>
+    <!-- Hello, this is footer -->
+    <div id="footer">
+        <div id="infoLeft">
+            <li>
+                <i class="fab fa-app-store"></i>
+            </li>
+            <li>
+                <i class="fab fa-google-play"></i>
+            </li>
+            <li>
+                <i class="fab fa-facebook-square"></i>
+            </li>
+            <li>
+                <i class="fab fa-instagram"></i>
+            </li>
+        </div>
+        <li id="infoRight">
+            <p>
+                Powered by @nhom1
+                <br>
+                © 2021 thuvienamnhac.com. All rights reserved
+            </p>
+        </li>
+    </div>
+    <script src="/DATA/dataController.js"></script>
+    <script src="/Controllers/adminController.js"></script>
+    <script src="/Controllers/changePageControllers.js"></script>
+    <script src="/Controllers/userControllers.js"></script>
+    <script src="/Controllers/changeString.js"></script>
 </body>
 
 </html>

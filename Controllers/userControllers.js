@@ -9,6 +9,64 @@ homePageID.addEventListener('click', () => {
     getResetHomePage();
 })
 
+//process icon menu
+
+function showMenu() {
+    let listMenuID = document.getElementById("listMenuID");
+    if (listMenuID.className = "listMenu") {
+        listMenuID.className += "Responsive";
+        let win = document.getElementById("body");
+        win.removeEventListener('click', setViewMenu);
+        win.addEventListener('click', setViewMenu);
+    }
+    else {
+        listMenuID.className = "listMenu";
+    }
+}
+
+function setViewMenu(e) {
+    let listMenuID = document.getElementById("listMenuID");
+    let iconMenu = document.getElementById("iconMenu");
+    let iconTheLoai = document.querySelector("#listMenuID li p");
+    if (e.target != listMenuID && e.target != iconMenu && e.target != iconTheLoai) {
+        if (listMenuID.className == "listMenuResponsive") {
+            listMenuID.className = "listMenu";
+        }
+    }
+}
+
+
+
+//process icon search
+
+function viewSearchHeader() {
+    let viewSearchID = document.getElementById("viewSearchID");
+    let viewLogo = document.getElementById("logo");
+    if (viewSearchID.className == "viewSearch") {
+        viewSearchID.className += "Responsive";
+        viewLogo.className += "Responsive";
+        let win = document.getElementById("body");
+        win.removeEventListener('click', setViewSearch);
+        win.addEventListener('click', setViewSearch);
+    }
+    else {
+        viewSearchID.className = "viewSearch";
+        viewLogo.className = "viewLogo";
+    }
+}
+function setViewSearch(e) {
+    let iconsearch = document.getElementById("iconSearch");
+    let searchID = document.getElementById("searchHomePage");
+    let viewSearchID = document.getElementById("viewSearchID");
+    let viewLogo = document.getElementById("logo");
+    if (e.target != searchID && e.target != iconsearch) {
+        if (viewSearchID.className == "viewSearchResponsive") {
+            viewSearchID.className = "viewSearch";
+            viewLogo.className = "viewLogo";
+        }
+    }
+}
+
 async function getHomePage() {
     setPageNone();
     blockHTML("homepage");
@@ -50,25 +108,39 @@ async function getHomePage() {
                     count++;
                 }
             }
-            if(count > 6){
+            if (count > 6) {
                 document.getElementById("searchMusic").style.height = "280px";
-                document.getElementById("searchMusic").style.overflow = "scroll";
+                document.getElementById("searchMusic").style.overflowY = "scroll";
             }
-            else{
+            else {
                 document.getElementById("searchMusic").style.height = "auto";
-                document.getElementById("searchMusic").style.overflow = "hidden";
+                document.getElementById("searchMusic").style.overflowY = "hidden";
             }
         }
     })
 }
+
+
 //process hover the loai
-let theLoai = document.getElementById("theLoaiID");
-theLoai.addEventListener('mouseover', () => {
-    document.getElementById("theLoai").style.display = "flex";
+let theLoai = document.getElementsByClassName("theLoaiID");
+let listTheLoai = document.getElementsByClassName("theLoai");
+theLoai[1].addEventListener('mouseover', () => {
+    listTheLoai[1].style.display = "flex";
 })
-theLoai.addEventListener('mouseout', () => {
-    document.getElementById("theLoai").style.display = "none";
+theLoai[1].addEventListener('mouseout', () => {
+    listTheLoai[1].style.display = "none";
 })
+let theLoai1 = document.querySelectorAll(".theLoaiID p");
+theLoai1[0].addEventListener('click', () => {
+    if (listTheLoai[0].className == "theLoai viewTL") {
+        listTheLoai[0].className += "Responsive";
+    }
+    else {
+        listTheLoai[0].className = "theLoai viewTL";
+    }
+})
+
+
 
 // get music from database
 function getMusicsDB(listMusics = [], contentHTMLID, xemThemID) {
@@ -84,8 +156,7 @@ function getMusicsDB(listMusics = [], contentHTMLID, xemThemID) {
     }
     let listLi = document.querySelectorAll(`#${contentHTMLID} li`);
     for (let i = indexPrint; nodeLi = listLi[i]; ++i) {
-        nodeLi.insertAdjacentHTML('beforeend', `<p class="name" onclick="getPageMusic(${listMusics[i].id})">${listMusics[i].name}</p>`);
-        nodeLi.insertAdjacentHTML('beforeend', `<p class="singer">- ${listMusics[i].singer}</p>`);
+        nodeLi.insertAdjacentHTML('beforeend', `<p class="name" onclick="getPageMusic(${listMusics[i].id})">${listMusics[i].name}<span class="singer">- ${listMusics[i].singer}</span></p>`);
         nodeLi.insertAdjacentHTML('beforeend', `<p class="countSeen"><i class="fas fa-headphones-alt"></i>${listMusics[i].countSeen}</p>`);
         nodeLi.insertAdjacentHTML('beforeend', '<hr>');
     }
@@ -113,9 +184,11 @@ function getMusicsDB(listMusics = [], contentHTMLID, xemThemID) {
 }
 
 function getGenreHomePage(listMusicsGenre = {}) {
-    let listGenreID = document.getElementById("theLoai");
-    for (let i in listMusicsGenre) {
-        listGenreID.insertAdjacentHTML('beforeend', `<li onclick = "getMusicsGenre('${listMusicsGenre[i][0].genre.toUpperCase()}')"> ${i}</li>`);
+    let listGenreID = document.getElementsByClassName("theLoai");
+    for (let j = 0; j < 2; ++j) {
+        for (let i in listMusicsGenre) {
+            listGenreID[j].insertAdjacentHTML('beforeend', `<li onclick = "getMusicsGenre('${listMusicsGenre[i][0].genre.toUpperCase()}')"> ${i}</li>`);
+        }
     }
 }
 
@@ -134,7 +207,9 @@ async function getMusicsGenre(gen) {
     }
     document.querySelector("#theLoaiContent h1").textContent = gen;
     noneHTML("logoHomePage");
+    setPageNone();
     blockHTML("theLoaiContent");
+    blockHTML("homepage");
     removeListHTML("#xemThemMusicsTheLoai p");
     let listLi = document.querySelectorAll("#musicTheLoai li");
     for (let i = 0; nodeLi = listLi[i]; ++i) {
@@ -209,107 +284,115 @@ async function getPageMusic(musicID) {
 
 //process upload music
 
-let uploadID = document.getElementById("uploadID");
-uploadID.addEventListener('click', () => {
-    setPageNone();
-    blockHTML("dangbaihat");
-})
-let addUploadID = document.getElementById("addUpload");
-addUploadID.addEventListener('click', () => {
-    let nameUpload = document.getElementById("nameUpload");
-    let authorUpload = document.getElementById("authorUpload");
-    let singerUpload = document.getElementById("singerUpload");
-    let genreUpload = document.getElementById("genreUpload");
-    let lyricsUpload = document.getElementById("lyricsUpload");
-    let iframeUrlUpload = document.getElementById("linkUpload");
-    let resultUpLoad = document.getElementById("uploadResult");
-    if (nameUpload.value == "" || iframeUrlUpload.value == "") {
-        resultUpLoad.style.color = "red";
-        resultUpLoad.textContent = "Bắt buộc phải điền trường có dấu (*)";
-    }
-    else {
-        resultUpLoad.style.color = "green";
-        resultUpLoad.textContent = "Thành công! Đang chờ admin xét duyệt!";
-        let musicUpLoad = {
-            name: nameUpload.value,
-            author: authorUpload.value,
-            singer: singerUpload.value,
-            genre: genreUpload.value,
-            lyrics: lyricsUpload.value,
-            iframeUrl: iframeUrlUpload.value,
-            checkSeen: "Chưa xem"
+let uploadID = document.getElementsByClassName("uploadID");
+for (let i = 0; i < 2; ++i) {
+    uploadID[i].addEventListener('click', () => {
+        setPageNone();
+        blockHTML("dangbaihat");
+    })
+    let addUploadID = document.getElementById("addUpload");
+    addUploadID.addEventListener('click', () => {
+        let nameUpload = document.getElementById("nameUpload");
+        let authorUpload = document.getElementById("authorUpload");
+        let singerUpload = document.getElementById("singerUpload");
+        let genreUpload = document.getElementById("genreUpload");
+        let lyricsUpload = document.getElementById("lyricsUpload");
+        let iframeUrlUpload = document.getElementById("linkUpload");
+        let resultUpLoad = document.getElementById("uploadResult");
+        if (nameUpload.value == "" || iframeUrlUpload.value == "") {
+            resultUpLoad.style.color = "red";
+            resultUpLoad.textContent = "Bắt buộc phải điền trường có dấu (*)";
         }
-        postData(uploadUrl, musicUpLoad);
-        document.querySelector("#upload form").reset();
-        setTimeout(() => {
-            resultUpLoad.textContent = "";
-        }, 500)
-    }
-})
+        else {
+            resultUpLoad.style.color = "green";
+            resultUpLoad.textContent = "Thành công! Đang chờ admin xét duyệt!";
+            let musicUpLoad = {
+                name: nameUpload.value,
+                author: authorUpload.value,
+                singer: singerUpload.value,
+                genre: genreUpload.value,
+                lyrics: lyricsUpload.value,
+                iframeUrl: iframeUrlUpload.value,
+                checkSeen: "Chưa xem"
+            }
+            postData(uploadUrl, musicUpLoad);
+            document.querySelector("#upload form").reset();
+            setTimeout(() => {
+                resultUpLoad.textContent = "";
+            }, 500)
+        }
+    })
+}
 
 
 //process request music
 
-let requestID = document.getElementById("requestID");
-requestID.addEventListener('click', () => {
-    setPageNone();
-    blockHTML("yeucaubaihat");
-})
-let addRequestID = document.getElementById("addRequest");
-addRequestID.addEventListener('click', () => {
-    let nameRequest = document.getElementById("nameRequest");
-    let singerAuthorRequest = document.getElementById("singerAuthorRequest");
-    let resultRequest = document.getElementById("requestResult");
-    if (nameRequest.value == "" || singerAuthorRequest.value == "") {
-        resultRequest.style.color = "red";
-        resultRequest.textContent = "Bắt buộc phải điền trường có dấu (*)";
-    }
-    else {
-        resultRequest.style.color = "green";
-        resultRequest.textContent = "Thành công! Đang chờ admin xử lý!"
-        postData(requestUrl, { name: nameRequest.value, singerAuthor: singerAuthorRequest.value, checkSeen: "Not seen" });
-        document.querySelector("#request form").reset();
-        setTimeout(() => {
-            resultRequest.textContent = "";
-        }, 500)
-    }
-})
+let requestID = document.getElementsByClassName("requestID");
+for (let i = 0; i < 2; ++i) {
+    requestID[i].addEventListener('click', () => {
+        setPageNone();
+        blockHTML("yeucaubaihat");
+    })
+    let addRequestID = document.getElementById("addRequest");
+    addRequestID.addEventListener('click', () => {
+        let nameRequest = document.getElementById("nameRequest");
+        let singerAuthorRequest = document.getElementById("singerAuthorRequest");
+        let resultRequest = document.getElementById("requestResult");
+        if (nameRequest.value == "" || singerAuthorRequest.value == "") {
+            resultRequest.style.color = "red";
+            resultRequest.textContent = "Bắt buộc phải điền trường có dấu (*)";
+        }
+        else {
+            resultRequest.style.color = "green";
+            resultRequest.textContent = "Thành công! Đang chờ admin xử lý!"
+            postData(requestUrl, { name: nameRequest.value, singerAuthor: singerAuthorRequest.value, checkSeen: "Not seen" });
+            document.querySelector("#request form").reset();
+            setTimeout(() => {
+                resultRequest.textContent = "";
+            }, 500)
+        }
+    })
+}
 
 //process lien he gop y
 
-let suggestionID = document.getElementById("suggestionID");
-suggestionID.addEventListener('click', () => {
-    setPageNone();
-    blockHTML("lienhegopy");
-})
-let addSuggestionID = document.getElementById("addSuggestion");
-addSuggestionID.addEventListener('click', () => {
-    let emailSuggestion = document.getElementById("emailSuggestion");
-    let subjectSuggestion = document.getElementById("subjectSuggestion");
-    let contentSuggestion = document.getElementById("contentSuggestion");
-    let resultSuggestion = document.getElementById("suggestionResult");
-    if (emailSuggestion.value == "" || contentSuggestion.value == "") {
-        resultSuggestion.style.color = "red";
-        resultSuggestion.textContent = "Bắt buộc phải điền trường có dấu (*)";
-    }
-    else {
-        resultSuggestion.style.color = "green";
-        resultSuggestion.textContent = "Hệ thống đã ghi nhận! Cảm ơn bạn đã góp ý!"
-        postData(suggestionUrl, { email: emailSuggestion.value, subject: subjectSuggestion.value, content: contentSuggestion.value, checkSeen: "Chưa xem" });
-        document.querySelector("#suggestion form").reset();
-        setTimeout(() => {
-            resultSuggestion.textContent = "";
-        }, 500)
-    }
-})
+let suggestionID = document.getElementsByClassName("suggestionID");
+for (let i = 0; i < 2; ++i) {
+    suggestionID[i].addEventListener('click', () => {
+        setPageNone();
+        blockHTML("lienhegopy");
+    })
+    let addSuggestionID = document.getElementById("addSuggestion");
+    addSuggestionID.addEventListener('click', () => {
+        let emailSuggestion = document.getElementById("emailSuggestion");
+        let subjectSuggestion = document.getElementById("subjectSuggestion");
+        let contentSuggestion = document.getElementById("contentSuggestion");
+        let resultSuggestion = document.getElementById("suggestionResult");
+        if (emailSuggestion.value == "" || contentSuggestion.value == "") {
+            resultSuggestion.style.color = "red";
+            resultSuggestion.textContent = "Bắt buộc phải điền trường có dấu (*)";
+        }
+        else {
+            resultSuggestion.style.color = "green";
+            resultSuggestion.textContent = "Hệ thống đã ghi nhận! Cảm ơn bạn đã góp ý!"
+            postData(suggestionUrl, { email: emailSuggestion.value, subject: subjectSuggestion.value, content: contentSuggestion.value, checkSeen: "Chưa xem" });
+            document.querySelector("#suggestion form").reset();
+            setTimeout(() => {
+                resultSuggestion.textContent = "";
+            }, 500)
+        }
+    })
+}
 
 //process login 
 
-let loginID = document.getElementById("loginID");
-loginID.addEventListener('click', () => {
-    setPageNone();
-    blockHTML("dangnhap");
-})
+let loginID = document.getElementsByClassName("loginID");
+for (let i = 0; i < 2; ++i) {
+    loginID[i].addEventListener('click', () => {
+        setPageNone();
+        blockHTML("dangnhap");
+    })
+}
 
 async function processLogin() {
     let response = await fetch(adminUrl);
@@ -347,12 +430,8 @@ async function processLogin() {
     })
 }
 
-processLogin();
 
-// setPageNone();
-// blockHTML("adminHomePage");
-// noneHTML("header");
-// noneHTML("footer");
+processLogin();
 
 
 
