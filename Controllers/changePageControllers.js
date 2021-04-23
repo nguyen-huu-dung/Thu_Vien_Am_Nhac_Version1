@@ -47,6 +47,10 @@ function blockHTML(domHTML){
     document.getElementById(domHTML).style.display = "block";
 }
 
+function flexHTML(domHTML){
+    document.getElementById(domHTML).style.display = "flex";
+}
+
 function noneHTML(domHTML){
     document.getElementById(domHTML).style.display = "none";
 }

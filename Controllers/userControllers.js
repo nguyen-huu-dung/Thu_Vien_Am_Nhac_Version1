@@ -288,7 +288,7 @@ let uploadID = document.getElementsByClassName("uploadID");
 for (let i = 0; i < 2; ++i) {
     uploadID[i].addEventListener('click', () => {
         setPageNone();
-        blockHTML("dangbaihat");
+        flexHTML("dangbaihat");
     })
     let addUploadID = document.getElementById("addUpload");
     addUploadID.addEventListener('click', () => {
