@@ -9,6 +9,7 @@ body {
     font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
 }
 
+
 /* Header*/
 
 #header{
@@ -17,6 +18,7 @@ body {
     width: 100%;
     display: flex;
     height: 50px;
+    margin-top: 0px;
 }
 
 #header a {
@@ -192,22 +194,32 @@ body {
     .viewSearchResponsive {
         display: block;
     }
+    .viewIconSearch{
+        display: block !important;
+    }
+}
+
+
+@media (max-width: 600px){
     .viewLogo{
         display: block;
     }
     .viewLogoResponsive{
         display: none;
     }
-    #iconSearch{
-        display: block !important;
+    #listMenuID ul{
+        width: 150px;
+    }
+    #listMenuID .theLoai{
+        left: 150px;
+        width: 150px;
     }
 }
-
 
 /*Home Page*/
 
 .container {
-    top: 50px;
+    padding-top: 50px;
     display: flex;
     flex-direction: column;
     background: #f9f9f9;
@@ -223,6 +235,7 @@ body {
 #bannertext {
     padding-top: 170px;
     padding-left: 55%;
+    padding-right: 30px;
 }
 #bannertext h2 {
     font-weight: bold;
@@ -247,9 +260,9 @@ body {
 
 .listHomePage img{
     padding-top: 10px;
-    margin: auto;
-    width: 360px;
-    height: 320px;
+    margin: 20px auto;
+    width: 80%;
+    height: 75%;
 }
 
 .headingclickable {
@@ -301,6 +314,7 @@ body {
 .xephang p {
     display: inline-block;
 }
+
 .name {
     font-weight: bold;
 }
@@ -318,6 +332,12 @@ body {
     font-size: 12px;
     float: right;
 }
+hr {
+    border: none;
+    height: 1.1px;
+    margin: 8px 0px 8px -25px;
+    background-color: #e4f0f6;
+}
 .xemthem {
     text-align: center;
 }
@@ -332,7 +352,7 @@ body {
     cursor: pointer;
 }
 
-@media screen and ( max-width: 892px){
+@media( max-width: 900px){
     .homePageContent{
         flex-direction: column;
     }
@@ -340,13 +360,153 @@ body {
         margin: 20px auto;
         width: 90%;
     }
-}
-
-@media screen and ( max-width: 580px){
-    .right{
-        display: block;
+    #banner {
+        background-size: 140% 100%;
+    }
+    #bannertext{
+        padding-top: 135px;
+        padding-left: 25%;
     }
 }
+
+@media (max-width: 600px){
+    #banner {
+        background-size: 350% 150% !important;
+        height: 360px !important;
+        background-position: 0px -133px;
+    }
+    #bannertext{
+        padding-top: 215px;
+        padding-left: 5%;
+    }
+}
+
+/*Page Music*/
+
+#pageMusicContent{
+    display: flex;
+    padding: 20px 4%;
+}
+
+#pageMusicLeft{
+    height: auto;
+    width: 65%;
+    margin: 0px 20px;
+}
+
+#pageMusicLeft div{
+    margin-top: 20px;
+}
+
+#nameMusic{
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+#singerTitleMusic{
+    display: inline-block;
+    font-style: italic;
+}
+
+#titlePageMusic{
+    background: white;
+    padding: 20px 15px 20px 30px;
+}
+
+#infoMusic {
+    background: white;
+    padding: 20px 15px 20px 30px;
+}
+
+#infoMusic hr {
+    border: none;
+    height: 2px;
+    margin: 8px 0px 8px -10px;
+    background-color: #e4f0f6;
+}
+
+#pageMusicRight{
+    height: auto;
+    width: 35%;
+}
+
+#pageMusicRight div{
+    margin-top: 20px;
+}
+
+#logoPageMusic{
+    text-align: center;
+}
+
+#pageMusicRight img{
+    width: 60%;
+}
+
+@media (max-width: 1200px){
+    #pageMusicContent{
+        padding: 20px 10px 20px 10px;
+    }
+    #titlePageMusic{
+        padding: 5px;
+    }
+    #pageMusicLeft{
+        margin: 0px 5px;
+    }
+}
+
+@media (max-width: 1050px){
+    #pageMusicContent{
+        flex-direction: column;
+        margin: auto;
+    }
+    #pageMusicLeft{
+        width: 100%;
+    }
+    #titlePageMusic{
+        padding-left: 20px;
+    }
+    #pageMusicRight{
+        width: 100%;
+    }
+    #pageMusicRight img{
+        display: none;
+    }
+}
+
+@media (max-width: 700px){
+    #iframePageMusic iframe{
+        width: 320px;
+        height: 420px;
+    }
+    #titlePageMusic{
+        text-align: center;
+    }
+    #pageMusicLeft{
+        width: 420px;
+    }
+    #pageMusicRight{
+        width: 100%;
+    }
+    #titlePageMusic{
+        padding-left: 0px;
+    }
+    #pageMusicLeft{
+        margin: 0px;
+    }
+}
+
+@media (max-width: 500px){
+    #pageMusicLeft{
+        width: 100%;
+    }
+    #infoMusic {
+        padding: 15px;
+    }
+    #pageMusicContent{
+        margin: 0;
+    }
+}
+
 
 .button1 {
     background-color: #0079bf; 
@@ -354,7 +514,7 @@ body {
     border-radius: 10px;
     color: white;
     margin-top: 15px;
-    padding: 8px 30px;
+    padding: 8px 26px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -367,7 +527,7 @@ body {
     color: #0079bf;
     margin-top: 15px;
     margin-right: -10px;
-    padding: 6px 34px;
+    padding: 6px 26px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -382,6 +542,535 @@ body {
     color: #055a8c;
     cursor: pointer;
 }
+
+/* header features */
+.containerfeatures {
+    width: auto;
+    border: 0em;
+    padding: 0em;
+    overflow: auto;
+    margin: auto;
+    background: #f9f9f9;
+    padding-top: 50px;
+}
+/* dang bai hat */
+@media screen and (min-width: 600px){
+    .inputleft {
+        width: 48%;
+        float: left;
+    }
+    .inputright {
+        width: 48%;
+        float: right;
+    }
+    .inputleft input {
+        width: 95%;
+        margin: 0px 0px -5px 20px;
+    }
+    .inputright input {
+        width: 95%;
+        margin: 0px 15px -5px 0px;
+    }
+    .inputleft p {
+        margin: 15px 0px 0px 20px;
+    }
+    .inputright p {
+        margin: 15px 15px 0px 0px;
+    }
+    .longinput, .longtextarea {
+        width: 95%;
+    }
+    #linkadd {
+        padding-top: 15px;
+    }
+}
+@media screen and (min-width: 1024px){
+    .huongdan {
+        float: right;
+        width: 30%;
+        margin: 20px 20px 20px 0px;
+    }
+    #upload {
+        width: 64%;
+        float: left;
+        margin: 20px 0px 20px 20px;
+    }
+}
+@media screen and (min-width: 800px) and (max-width: 1023px) {
+    .huongdan {
+        max-width: 750px;
+        margin: auto;
+        margin-top: 20px;
+    }
+    #upload {
+        max-width: 750px;
+        margin: auto;
+    }
+}
+@media screen and (min-width: 600px) and (max-width: 799px) {
+    .huongdan {
+        margin: 20px;
+    }
+    #upload {
+        margin: 20px;
+    }
+}
+@media screen and (min-width: 480px) and (max-width: 599px) {
+    .huongdan {
+        margin: 20px;
+    }
+    #upload {
+        margin: 20px;
+    }
+    #upload p {
+        margin: 0px 15px 5px 20px;
+    }
+    .inputleft {
+        padding-top: 15px;
+    }
+    .inputleft input, .inputright input, .longinput, .longtextarea {
+        width: 92%;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 479px) {
+    .huongdan {
+        margin: 20px;
+    }
+    #upload {
+        margin: 20px;
+    }
+    #upload p {
+        margin: 0px 15px 5px 20px;
+    }
+    .inputleft {
+        padding-top: 15px;
+    }
+    .inputleft input, .inputright input, .longinput, .longtextarea {
+        width: 88%;
+    }
+}
+
+.huongdan {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#upload {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.heading {
+    text-transform: uppercase;
+    font-size: 15px;
+    text-align: center;
+    background: #f9f9f9;
+    color: #094c72;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+.huongdan p {
+    padding: 15px 20px 20px 25px;
+    font-size: 13px;
+    text-align: justify;
+}
+#upload p {
+    font-size: 13px;
+    font-weight: bold;
+}
+.halfinput {
+    margin: 0px 15px 10px 20px;
+}
+.inputleft input {
+    padding: 2px 2px 2px 8px;
+    border: 1px solid black;
+}
+.inputright input {
+    padding: 2px 2px 2px 8px;
+    border: 1px solid black;
+}
+.longinput {
+    margin: 0px 15px 10px 20px;
+    padding: 2px 2px 2px 8px;
+    border: 1px solid black;
+}
+.clearfloat {
+    float: none;
+    clear: both;
+}
+.longtextarea {
+    height: 150px;
+    margin: 0px 15px 20px 20px;
+    padding: 8px 2px 2px 8px;
+    border: 1px solid black;
+}
+#linkadd {
+    margin: 0px 15px 0px 20px;
+}
+#lyricsadd {
+    margin: 0px 15px 5px 20px;
+}
+.center {
+    display: flex;
+    justify-content: center;
+}
+.result{
+    text-align: center;
+}
+/* yeu cau bai hat */
+@media screen and (min-width: 1024px){
+    .huongdan {
+        float: right;
+        width: 30%;
+        margin: 20px 20px 20px 0px;
+    }
+    #request {
+        width: 64%;
+        float: left;
+        margin: 20px 0px 20px 20px;
+    }
+}
+@media screen and (min-width: 800px) and (max-width: 1023px) {
+    .huongdan {
+        max-width: 750px;
+        margin: auto;
+        margin-top: 20px;
+    }
+    #request {
+        max-width: 750px;
+        margin: auto;
+    }
+}
+@media screen and (min-width: 600px) and (max-width: 799px) {
+    .huongdan {
+        margin: 20px;
+    }
+    #request {
+        margin: 20px;
+    }
+}
+@media screen and (min-width: 480px) and (max-width: 599px) {
+    .huongdan {
+        margin: 20px;
+    }
+    #request {
+        margin: 20px;
+    }
+    #request p {
+        margin: 0px 15px 5px 20px;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 479px) {
+    .huongdan {
+        margin: 20px;
+    }
+    #request {
+        margin: 20px;
+    }
+    #request p {
+        margin: 0px 15px 5px 20px;
+    }
+}
+
+#request {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#request p {
+    font-size: 13px;
+    font-weight: bold;
+}
+.longp {
+    margin: 0px 15px 5px 20px;
+}
+#request .inputdiv {
+    padding: 15px 0px;
+}
+/* lien he gop y */
+@media screen and (min-width: 1024px){
+    .huongdan {
+        float: right;
+        width: 30%;
+        margin: 20px 20px 20px 0px;
+    }
+    #suggestion {
+        width: 64%;
+        float: left;
+        margin: 20px 0px 20px 20px;
+    }
+}
+@media screen and (min-width: 800px) and (max-width: 1023px) {
+    .huongdan {
+        max-width: 750px;
+        margin: auto;
+        margin-top: 20px;
+    }
+    #suggestion {
+        max-width: 750px;
+        margin: auto;
+    }
+}
+@media screen and (min-width: 600px) and (max-width: 799px) {
+    .huongdan {
+        margin: 20px;
+    }
+    #suggestion {
+        margin: 20px;
+    }
+}
+@media screen and (min-width: 480px) and (max-width: 599px) {
+    .huongdan {
+        margin: 20px;
+    }
+    #suggestion {
+        margin: 20px;
+    }
+    #suggestion p {
+        margin: 0px 15px 5px 20px;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 479px) {
+    .huongdan {
+        margin: 20px;
+    }
+    #suggestion {
+        margin: 20px;
+    }
+    #suggestion p {
+        margin: 0px 15px 5px 20px;
+    }
+}
+
+#suggestion {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#suggestion p {
+    font-size: 13px;
+    font-weight: bold;
+}
+.longp {
+    margin: 0px 15px 5px 20px;
+}
+#suggestion .inputdiv {
+    padding-top: 15px;
+}
+/* dangnhap*/
+@media screen and (min-width: 480px){
+    #dangnhap{
+        flex-direction: column;
+    }
+    .inputFillShort {
+        width: 65%;
+        margin: 0px 0px 10px 15px;
+    }
+    .inputFillLong {
+        width: 76%;
+        margin: 0px 0px 10px 15px;
+    }
+    .flex {
+        display: flex;
+    }
+    #login > .body {
+        padding: 20px;
+    }
+}
+@media screen and (min-width: 800px){
+    #dangnhap {
+        display: flex;
+        justify-content: center;
+        flex-direction: row-reverse;
+    }
+    #dangnhap .huongdan {
+        float: right;
+        width: 375px;
+        margin: 20px 20px 20px 0px;
+    }
+    #login {
+        width: 375px;
+        float: left;
+        margin: 20px;
+    }
+}
+@media screen and (min-width: 480px) and (max-width: 799px) {
+    #dangnhap{
+        flex-direction: column;
+    }
+    #dangnhap .huongdan {
+        margin: auto;
+        width: 375px;
+    }
+    #login {
+        margin: auto;
+        width: 375px;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 479px) {
+    #dangnhap{
+        flex-direction: column;
+    }
+    #dangnhap .huongdan {
+        margin: auto;
+        width: 88%;
+    }
+    #login {
+        margin: auto;
+        width: 88%;
+    }
+    .inputFillShort, .inputFillLong {
+        width: 99%;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+    #login > .body {
+        padding: 15px;
+    }
+}
+
+#login {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#login button {
+    text-align: center;
+}
+.inputFillShort {
+    padding: 2px 2px 2px 8px;
+    border: 1px solid black;
+}
+.inputFillLong {
+    padding: 2px 2px 2px 8px;
+    border: 1px solid black;
+}
+.loginp {
+    font-size: 13px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+#forgetpass {
+    font-size: 11px;
+    color: #094c72;
+    text-decoration: underline;
+    margin: -8px 0px 10px 0px !important;
+}
+#forgetpass:hover {
+    cursor: pointer;
+}
+#loginwith > .fa-facebook {
+    color: #3b5998;
+    font-size: 30px;
+}
+#loginwith > .fa-google {
+    color: #de5246;
+    margin: 5px 0px 0px 10px;
+    font-size: 30px;
+}
+#loginwith > .fab:hover {
+    cursor: pointer;
+}
+/* dang ky */
+@media screen and (min-width: 480px){
+    #dangky{
+        flex-direction: column;
+    }
+    .inputFillShort {
+        width: 65%;
+        margin: 0px 0px 10px 15px;
+    }
+    .inputFillLong {
+        width: 76%;
+        margin: 0px 0px 10px 15px;
+    }
+    .flex {
+        display: flex;
+    }
+    #signup > .body {
+        padding: 20px;
+    }
+}
+@media screen and (min-width: 800px){
+    #dangky {
+        display: flex;
+        justify-content: center;
+        flex-direction: row-reverse;
+    }
+    #dangky .huongdan {
+        float: right;
+        width: 375px;
+        margin: 20px 20px 20px 0px;
+    }
+    #signup {
+        width: 475px;
+        float: left;
+        margin: 20px;
+    }
+}
+@media screen and (min-width: 480px) and (max-width: 799px) {
+    #dangky{
+        flex-direction: column;
+    }
+    #dangky .huongdan {
+        margin: auto;
+        width: 375px;
+    }
+    #signup {
+        margin: auto;
+        width: 475px;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 479px) {
+    #dangky{
+        flex-direction: column;
+    }
+    #dangky .huongdan {
+        margin: auto;
+        width: 88%;
+    }
+    #dangky {
+        margin: auto;
+        width: 88%;
+    }
+    .inputFillShort, .inputFillLong {
+        width: 99%;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+    #signup > .body {
+        padding: 15px;
+    }
+}
+
+#signup {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#signup button {
+    text-align: center;
+}
+.inputFillShort {
+    padding: 2px 2px 2px 8px;
+    border: 1px solid black;
+}
+.inputFillLong {
+    padding: 2px 2px 2px 8px;
+    border: 1px solid black;
+}
+.loginp {
+    font-size: 13px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+#loginwith > .fa-facebook {
+    color: #3b5998;
+    font-size: 30px;
+}
+#loginwith > .fa-google {
+    color: #de5246;
+    margin: 5px 0px 0px 10px;
+    font-size: 30px;
+}
+#loginwith > .fab:hover {
+    cursor: pointer;
+}
+
 
 /*footer*/
 #footer{
@@ -435,12 +1124,160 @@ body {
     .listHomePage img{
         display: none !important;
     }
-    #bannertext {
-        padding-top: 170px;
-        padding-left: 45%;
-    }
     .name{
         min-width: 300px;
     }
 }
 
+/*Admin home page*/
+#chooseMenu {
+    list-style-type: none;
+    width: 20%;
+    background-color: #094c72;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    font-size: 18px;
+}
+
+#chooseMenu ul li {
+    display: block;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+} 
+
+#chooseMenu ul li:hover {
+    background: #055a8c;
+    cursor: pointer;
+}
+
+#content {
+    margin-left: 20%;
+    padding: 16px 10px;
+    height: auto;
+}
+
+.contentAdmin{
+    padding-left: 100px;
+}
+
+#adminHomePage button{
+    padding: 10px;
+    width: auto;
+    border-radius: 8px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+#adminHomePage button:hover{
+    background-color: rgb(141, 138, 138);
+    color: white;
+}
+
+.clearAdmin {
+    background-color: rgb(81, 144, 202) !important;
+    color: white;
+}
+
+.clearAdmin:hover {
+    background-color: rgb(64, 87, 192) !important;
+}
+
+.changePage {
+    text-decoration: none;
+    border-radius: 50% !important;
+    padding: 8px 16px !important;
+}
+
+.titleContent{
+    text-align: center;
+    font-weight: bolder;
+    font-size: 24px;
+    color: #094c72;
+    margin-bottom: 50px;
+}
+
+.change {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.countPage{
+    padding: 8px 16px;
+}
+
+#musicAdmin{
+    columns: 2;
+}
+
+table {
+    width:100%;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+th, td {
+    padding: 15px;
+    
+}
+#t01 tr:nth-child(even) {
+    background-color: #eee;
+}
+#t01 tr:nth-child(odd) {
+   background-color: #fff;
+}
+#t01 th {
+    background-color: black;
+    color: white;
+}
+
+.halfinputAdmin {
+    width: 200px;
+    margin: 5px 15px 10px 0px;
+    padding: 2px 2px 2px 8px;
+    border: 1px solid black;
+    min-height: 30px;
+    border-color: #eee;
+    border-radius: 8px;
+    outline: unset;
+}
+.longinputAdmin {
+    width: 631px;
+    margin: 5px 15px 10px 0px;
+    padding: 2px 2px 2px 8px;
+    border: 1px solid black;
+    min-height: 30px;
+    border-color: #eee;
+    border-radius: 8px;
+    outline: unset;
+}
+.longtextareaAdmin {
+    width: 631px;
+    height: 150px;
+    margin: 5px 15px 20px 0px;
+    padding: 8px 2px 2px 8px;
+    border: 1px solid black;
+    border-color: #eee;
+    border-radius: 8px;
+    outline: unset;
+}
+
+.noData{
+    text-align: center;
+    font-weight: bolder;
+    display: none;
+}
+
+#adminHomePage select {
+    margin: 5px 15px 10px 0px;
+    min-height: 20px;
+    border: 1px solid black;
+    border-color: #eee;
+    border-radius: 8px;
+    outline: unset;
+}

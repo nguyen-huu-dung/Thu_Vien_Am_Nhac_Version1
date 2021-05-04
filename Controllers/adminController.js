@@ -271,8 +271,11 @@ async function getMucsicsAdmin(countPage) {
 
 function resetMusicAdmin() {
     removeChange("Music");
+    document.querySelector("#musicsAdmin form").reset();
     document.getElementById("filterAdminMusic").value = "all";
     document.getElementById("resultMusicAdmin").textContent = "";
+    let listButton = document.querySelectorAll("#buttonMusicAdmin button");
+    if(listButton[2]!=null) listButton[2].remove();
     let listTr = document.querySelectorAll("#MusicContent table tr");
     for (let i = 1; nodeTr = listTr[i]; ++i) {
         nodeTr.remove();
@@ -463,7 +466,9 @@ function filter(listData = [], listFilter = {}, namePage){
 //reset upload admin
 function resetUploadAdmin() {
     removeChange("Upload");
+    document.querySelector("#uploadAdmin form").reset();
     document.getElementById("resultUploadAdmin").textContent = "";
+    if(document.getElementById("addUploadAdmin") !=null) document.getElementById("addUploadAdmin").remove();
     let listTr = document.querySelectorAll("#UploadContent table tr");
     for (let i = 1; nodeTr = listTr[i]; ++i) {
         nodeTr.remove();
@@ -635,8 +640,8 @@ logOut.addEventListener('click', () => {
     setPageNone();
     setStyleChoose();
     getResetHomePage();
-    document.getElementById("homepage").style.display = "block";
-    document.getElementById("header").style.display = "block";
-    document.getElementById("footer").style.display = "block";
+    blockHTML("homepage");
+    flexHTML("header");
+    flexHTML("footer");
 })
 

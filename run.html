@@ -40,11 +40,11 @@
             <i class="iconHeader fa fa-bars" id="iconMenu" onclick="showMenu()"></i>
             <a id="logo" class="viewLogo"><i class="fas fa-headphones-alt"></i> THƯ VIỆN ÂM NHẠC</a>
             <div id="viewSearchID" class="viewSearch">
-                <input type="search" id="searchHomePage" placeholder="Tìm theo bài hát hoặc ca sĩ">
+                <input type="search" id="searchHomePage" placeholder="Tìm theo bài hát hoặc ca sĩ" autocomplete="off">
                 <ol id="searchMusic">
                 </ol>
             </div>
-            <i class="iconHeader fa fa-search" id="iconSearch" onclick="viewSearchHeader()"></i>
+            <i class="viewIconSearch iconHeader fa fa-search" id="iconSearch" onclick="viewSearchHeader()"></i>
         </div>
         <div class="rightHeader" id="rightMenuID">
             <a class="loginID">Đăng nhập</a>
@@ -85,7 +85,7 @@
                     </div>
                 </div>
             </div>
-            <div class="listHomePage">
+            <div class="listHomePage" id="demo">
                 <div>
                     <h1 class="headingclickable">Top 100 bài hát hay nhất</h1>
                 </div>
@@ -103,18 +103,18 @@
         <div id="pageMusicContent">
             <div id="pageMusicLeft">
                 <div id="titlePageMusic">
-                    <p id="nameMusic"></p>
-                    <p id="singerTitleMusic"></p>
-                </div>
-                <div id="iframePageMusic">
-                    <iframe src="" width="620" height="320" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+                    <a id="nameMusic"></a>&ensp;/
+                    <a id="singerTitleMusic"></a>
+                    <div id="iframePageMusic">
+                        <iframe src="" width="620px" height="320px" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+                    </div>
                 </div>
                 <div id="infoMusic">
-                    <div id="singerAuthorMusic">
-                        <p id="authorMusic"></p>
-                        <p id="singerMusic"></p>
-                    </div>
-                    <div id="lyricsMusic">
+                    <a><strong>Sáng tác: </strong></a>
+                    <a id="authorMusic"></a><br>
+                    <a><strong>Lời bài hát: </strong></a><hr>
+                    <p id="lyricsMusic"></p>
+                    <div>
                     </div>
                 </div>
             </div>
@@ -131,15 +131,15 @@
                         </div>
                     </div>
                 </div>
-                <div>
+                <div id="logoPageMusic">
                     <img src="/IMAGE/logo.PNG" alt="logo thu vien am nhac">
                 </div>
             </div>
         </div>
     </div>
     <!-- Hello, this is dang bai hat -->
-    <div id="dangbaihat" class="container">
-        <div class="huongdan right">
+    <div id="dangbaihat" class="containerfeatures">
+        <div class="huongdan">
             <div>
                 <h1 class="heading">Hướng dẫn</h1>
             </div>
@@ -183,11 +183,13 @@
                     <p>Tác giả</p>
                     <input class="halfinput" type="text" placeholder="Ví dụ: Trịnh Công Sơn" id="authorUpload">
                 </div>
-                <p id="linkadd">Link bài hát <span style="color:red">*</span></p>
-                <input class="longinput" type="text" placeholder="Điền link hợp lệ bạn nhé!" id="linkUpload">
-                <p id="lyricsadd">Lời bài hát</p>
-                <textarea class="longtextarea" id="lyricsUpload"></textarea>
-                <p id="uploadResult" class="result"></p>
+                <div class="clearfloat">
+                    <p id="linkadd">Link bài hát <span style="color:red">*</span></p>
+                    <input class="longinput" type="text" placeholder="Điền link hợp lệ bạn nhé!" id="linkUpload">
+                    <p id="lyricsadd">Lời bài hát</p>
+                    <textarea class="longtextarea" id="lyricsUpload"></textarea>
+                    <p id="uploadResult" class="result"></p>
+                </div>
             </form>
             <div class="center">
                 <button id="addUpload" class="button1">Đăng bài hát</button>
@@ -195,8 +197,8 @@
         </div>
     </div>
     <!-- Hello, this is yeu cau bai hat -->
-    <div id="yeucaubaihat" class="container">
-        <div class="huongdan right">
+    <div id="yeucaubaihat" class="containerfeatures">
+        <div class="huongdan">
             <div>
                 <h1 class="heading">Hướng dẫn</h1>
             </div>
@@ -239,8 +241,8 @@
         </div>
     </div>
     <!-- Hello, this is lien he gop y -->
-    <div id="lienhegopy" class="container">
-        <div class="huongdan right">
+    <div id="lienhegopy" class="containerfeatures">
+        <div class="huongdan">
             <div>
                 <h1 class="heading">Contact us</h1>
             </div>
@@ -265,7 +267,7 @@
                 </p>
             </div>
         </div>
-        <div id="suggestion" class="contact">
+        <div id="suggestion">
             <div>
                 <h1 class="heading">Soạn thư</h1>
             </div>
@@ -276,7 +278,7 @@
                 <input class="longinput" type="text" placeholder="Ví dụ: V/v quảng cáo trên website"
                     id="subjectSuggestion">
                 <p class="longp">Nội dung thư <span style="color:red">*</span></p>
-                <textarea class="longtextarea1" id="contentSuggestion"></textarea>
+                <textarea class="longtextarea" id="contentSuggestion"></textarea>
                 <p id="suggestionResult" class="result"></p>
             </form>
             <div class="center">
@@ -285,10 +287,10 @@
         </div>
     </div>
     <!-- Hello, this is dang nhap -->
-    <div id="dangnhap" class="container" style="display:flex">
+    <div id="dangnhap" class="containerfeatures">
         <div class="huongdan">
             <div>
-                <h1 class="heading">Một Thư Viện của riêng bạn!</h1>
+                <h1 class="heading">&nbsp;</h1>
             </div>
             <div class="body">
                 <p>
@@ -314,13 +316,13 @@
             <form class="body">
                 <div class="flex">
                     <p class="loginp">Tên đăng nhập</p>
-                    <input class="halfinput" type="text" placeholder="Enter username or e-mail" id="userName">
+                    <input class="inputFillShort" type="text" placeholder="Enter username or e-mail" id="userName">
                 </div>
                 <div class="flex">
                     <p class="loginp">Mật khẩu</p>
-                    <input class="halfinput" type="password" placeholder="Enter password" id="passWord">
+                    <input class="inputFillLong" type="password" placeholder="Enter password" id="passWord">
                 </div>
-                <div class="flex right">
+                <div>
                     <p id="forgetpass" style="text-align: right;">Quên mật khẩu?</p>
                 </div>
                 <div style="text-align: left;">
@@ -329,9 +331,61 @@
                 </div>
                 <p id="loginResult" class="result"></p>
             </form>
-            <div>
+            <div class="center"> 
                 <button id="addLogin" class="button1">Đăng nhập</button>
-                <button class="button2">Đăng ký ngay</button>
+                &nbsp;
+                <button class="signupID button2">Đăng ký ngay</button>
+            </div>
+        </div>
+    </div>
+    <!-- Hi, this is dang ky -->
+    <div id="dangky" class="containerfeatures">
+        <div class="huongdan">
+            <div>
+                <h1 class="heading">&nbsp;</h1>
+            </div>
+            <div class="body">
+                <p>
+                    <strong>Hãy đăng nhập hoặc đăng ký tài khoản để...</strong>
+                    <br>
+                    - Lưu các bài hát yêu thích
+                    <br>
+                    - Tạo và chia sẻ playlists cá nhân
+                    <br>
+                    - Theo dõi, tương tác cùng tài khoản bạn bè
+                    <br>
+                    - Tham gia cộng đồng Thư Viện lớn mạnh
+                    <br>
+                    <br>
+                    <em>Quá trình đăng ký vô cùng đơn giản, dễ dàng!</em>
+                </p>
+            </div>
+        </div>
+        <div id="signup">
+            <div>
+                <h1 class="heading">Đăng ký</h1>
+            </div>
+            <form class="body">
+                <div class="flex">
+                    <p class="loginp">Điền e-mail&nbsp;&nbsp;&nbsp;</p>
+                    <input class="inputFillLong" type="text" placeholder="Enter e-mail" id="emailSignup">
+                </div>
+                <div class="flex">
+                    <p class="loginp">Tạo tên đăng nhập &nbsp;&nbsp;&nbsp;</p>
+                    <input class="inputFillShort" type="text" placeholder="Create username" id="usernameSignup">
+                </div>
+                <div class="flex">
+                    <p class="loginp">Tạo mật khẩu</p>
+                    <input class="inputFillLong" type="password" placeholder="Create password" id="passwordSignup">
+                </div>
+                <div style="text-align: left;">
+                    <p class="loginp">Hoặc đăng ký với</p>
+                    <p id="loginwith"><i class="fab fa-facebook"></i> <i class="fab fa-google"></i></p>
+                </div>
+                <p id="loginResult" class="result"></p>
+            </form>
+            <div class="center"> 
+                <button id="addSignup" class="button1">Tạo tài khoản</button>
             </div>
         </div>
     </div>
@@ -360,32 +414,32 @@
                         <div style="display: flex; flex-direction: row;">
                             <div style="display: flex; flex-direction: column;">
                                 <label for="nameMusicAdmin">Tên bài hát:</label>
-                                <input class="halfinput" type="text" id="nameMusicAdmin" placeholder="name...">
+                                <input class="halfinputAdmin" type="text" id="nameMusicAdmin" placeholder="name...">
                                 <label for="authorMusicAdmin">Sáng tác:</label>
-                                <input class="halfinput" type="text" id="authorMusicAdmin" placeholder="author...">
+                                <input class="halfinputAdmin" type="text" id="authorMusicAdmin" placeholder="author...">
                             </div>
                             <div style="display: flex; flex-direction: column;">
                                 <label for="singerMusicAdmin">Ca sĩ:</label>
-                                <input class="halfinput" type="text" id="singerMusicAdmin" placeholder="singer...">
+                                <input class="halfinputAdmin" type="text" id="singerMusicAdmin" placeholder="singer...">
                                 <label for="genreMusicAdmin">Thể loại:</label>
-                                <input class="halfinput" type="text" id="genreMusicAdmin" placeholder="genre...">
+                                <input class="halfinputAdmin" type="text" id="genreMusicAdmin" placeholder="genre...">
                             </div>
                         </div>
                         <div style="display: flex; flex-direction: column;">
                             <label for="iframeMusicAdmin">Iframe Url:</label>
-                            <input class="longinput" type="text" id="iframeMusicAdmin" placeholder="iframeUrl...">
+                            <input class="longinputAdmin" type="text" id="iframeMusicAdmin" placeholder="iframeUrl...">
                             <label for="lyricsMusicAdmin">Lời bài hát:</label>
-                            <textarea class="longtextarea" id="lyricsMusicAdmin" placeholder="lyrics..."></textarea>
+                            <textarea class="longtextareaAdmin" id="lyricsMusicAdmin" placeholder="lyrics..."></textarea>
                         </div>
                     </form>
                     <p id="resultMusicAdmin"></p>
                     <div id="buttonMusicAdmin" style="display: flex; flex-direction: row;">
-                        <button id="clearMusicAdmin">Clear</button>
+                        <button id="clearMusicAdmin" class="clearAdmin">Clear</button>
                         <button id="addMusicAdmin">Add</button>
                     </div>
-                    <div id="filter" style="display: flex;">
-                        <label for="searchID">Tìm kiếm</label>
-                        <input type="text" id="searchID" placeholder="Tên bài hát or ca sĩ...">
+                    <div id="filter">
+                        <label for="searchID">Tìm kiếm:</label>
+                        <input type="text" class="halfinputAdmin" id="searchID" placeholder="Tên bài hát or ca sĩ..." autocomplete="off">
                         <label for="filterAdminMusic">Thể Loại:</label>
                         <select id="filterAdminMusic" form="filterForm" name="genreList">
                             <option value="all">Tất cả</option>
@@ -413,27 +467,27 @@
                         <div style="display: flex; flex-direction: row;">
                             <div style="display: flex; flex-direction: column;">
                                 <label for="nameUploadAdmin">Tên bài hát:</label>
-                                <input class="halfinput" type="text" id="nameUploadAdmin" placeholder="name...">
+                                <input class="halfinputAdmin" type="text" id="nameUploadAdmin" placeholder="name...">
                                 <label for="authorUploadAdmin">Sáng tác:</label>
-                                <input class="halfinput" type="text" id="authorUploadAdmin" placeholder="author...">
+                                <input class="halfinputAdmin" type="text" id="authorUploadAdmin" placeholder="author...">
                             </div>
                             <div style="display: flex; flex-direction: column;">
                                 <label for="singerUploadAdmin">Ca sĩ:</label>
-                                <input class="halfinput" type="text" id="singerUploadAdmin" placeholder="singer...">
+                                <input class="halfinputAdmin" type="text" id="singerUploadAdmin" placeholder="singer...">
                                 <label for="genreUploadAdmin">Thể loại:</label>
-                                <input class="halfinput" type="text" id="genreUploadAdmin" placeholder="genre...">
+                                <input class="halfinputAdmin" type="text" id="genreUploadAdmin" placeholder="genre...">
                             </div>
                         </div>
                         <div style="display: flex; flex-direction: column;">
                             <label for="iframeUploadAdmin">Iframe Url:</label>
-                            <input class="longinput" type="text" id="iframeUploadAdmin" placeholder="iframeUrl...">
+                            <input class="longinputAdmin" type="text" id="iframeUploadAdmin" placeholder="iframeUrl...">
                             <label for="lyricsUploadAdmin">Lời bài hát:</label>
-                            <textarea class="longtextarea" id="lyricsUploadAdmin" placeholder="lyrics..."></textarea>
+                            <textarea class="longtextareaAdmin" id="lyricsUploadAdmin" placeholder="lyrics..."></textarea>
                         </div>
                     </form>
                     <p id="resultUploadAdmin"></p>
                     <div id="buttonUploadAdmin" style="display: flex; flex-direction: row;">
-                        <button id="clearUploadAdmin">Clear</button>
+                        <button id="clearUploadAdmin" class="clearAdmin">Clear</button>
                     </div>
                     <select id="filterAdminUpload" form="filterForm" name="genreList">
                         <option value="all">Tất cả</option>
@@ -475,7 +529,7 @@
             <div id="suggestionAdmin" class="contentAdmin">
                 <p class="titleContent">Quản lý liên hệ góp ý</p>
                 <p>Nội dung:</p>
-                <div id="viewSuggestion">
+                <div id="viewSuggestion" class="longtextareaAdmin">
                 </div>
                 <div id="SuggestionContent">
                     <p id="resultSuggestionAdmin"></p>

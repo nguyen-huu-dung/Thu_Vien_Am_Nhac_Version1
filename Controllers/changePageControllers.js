@@ -1,5 +1,5 @@
 function setPageNone() {
-    let listIdPage = ["homepage", "pageMusic", "dangbaihat", "yeucaubaihat", "lienhegopy", "dangnhap", "adminHomePage", "theLoaiContent", "logoHomePage", "searchMusic"];
+    let listIdPage = ["homepage", "pageMusic", "dangbaihat", "yeucaubaihat", "lienhegopy", "dangnhap","dangky", "adminHomePage", "theLoaiContent", "logoHomePage", "searchMusic"];
     for (let x of listIdPage) {
         noneHTML(x);
     }

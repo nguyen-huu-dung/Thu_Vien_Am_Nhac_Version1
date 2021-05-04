@@ -5,7 +5,7 @@
 let homePageID = document.getElementById("logo");
 homePageID.addEventListener('click', () => {
     setPageNone();
-    blockHTML("homepage");
+    flexHTML("homepage");
     getResetHomePage();
 })
 
@@ -42,34 +42,33 @@ function setViewMenu(e) {
 function viewSearchHeader() {
     let viewSearchID = document.getElementById("viewSearchID");
     let viewLogo = document.getElementById("logo");
+    let viewIconSearch = document.getElementById("iconSearch");
     if (viewSearchID.className == "viewSearch") {
+        viewIconSearch.className = "iconHeader fa fa-search";
         viewSearchID.className += "Responsive";
         viewLogo.className += "Responsive";
         let win = document.getElementById("body");
         win.removeEventListener('click', setViewSearch);
         win.addEventListener('click', setViewSearch);
     }
-    else {
-        viewSearchID.className = "viewSearch";
-        viewLogo.className = "viewLogo";
-    }
 }
 function setViewSearch(e) {
-    let iconsearch = document.getElementById("iconSearch");
+    let viewIconsearch = document.getElementById("iconSearch");
     let searchID = document.getElementById("searchHomePage");
     let viewSearchID = document.getElementById("viewSearchID");
     let viewLogo = document.getElementById("logo");
-    if (e.target != searchID && e.target != iconsearch) {
+    if (e.target != searchID && e.target != viewIconsearch) {
         if (viewSearchID.className == "viewSearchResponsive") {
             viewSearchID.className = "viewSearch";
             viewLogo.className = "viewLogo";
+            viewIconsearch.className = "viewIconSearch " + viewIconsearch.className;
         }
     }
 }
 
 async function getHomePage() {
     setPageNone();
-    blockHTML("homepage");
+    flexHTML("homepage");
     blockHTML("logoHomePage");
     let response = await fetch(musicUrl);
     let listMusics = await response.json();
@@ -149,15 +148,17 @@ function getMusicsDB(listMusics = [], contentHTMLID, xemThemID) {
     let indexPrint = 0;
     for (let i = indexPrint; i < indexPrint + 8; ++i) {
         listMusicsID.insertAdjacentHTML('beforeend', `<li></li>`);
-        if (i == 99 || i == listMusics.length - 1) {
+        if (i == 99 || i == listMusics.length - 1) { 
             noneHTML(xemThemID);
             break;
         }
     }
     let listLi = document.querySelectorAll(`#${contentHTMLID} li`);
     for (let i = indexPrint; nodeLi = listLi[i]; ++i) {
-        nodeLi.insertAdjacentHTML('beforeend', `<p class="name" onclick="getPageMusic(${listMusics[i].id})">${listMusics[i].name}<span class="singer">- ${listMusics[i].singer}</span></p>`);
-        nodeLi.insertAdjacentHTML('beforeend', `<p class="countSeen"><i class="fas fa-headphones-alt"></i>${listMusics[i].countSeen}</p>`);
+        nodeLi.insertAdjacentHTML('beforeend', `
+        <p class="name" onclick="getPageMusic(${listMusics[i].id})">${listMusics[i].name}</p><br>
+        <p class="singer">${listMusics[i].singer}</p>
+        <p class="countSeen"><i class="fas fa-headphones-alt"></i>${listMusics[i].countSeen}</p>`);
         nodeLi.insertAdjacentHTML('beforeend', '<hr>');
     }
     indexPrint += 8;
@@ -171,9 +172,10 @@ function getMusicsDB(listMusics = [], contentHTMLID, xemThemID) {
         }
         let listLi = document.querySelectorAll(`#${contentHTMLID} li`);
         for (let i = indexPrint; nodeLi = listLi[i]; ++i) {
-            nodeLi.insertAdjacentHTML('beforeend', `<p class="name" onclick="getPageMusic(${listMusics[i].id})">${listMusics[i].name}</p>`);
-            nodeLi.insertAdjacentHTML('beforeend', `<p class="singer">- ${listMusics[i].singer}</p>`);
-            nodeLi.insertAdjacentHTML('beforeend', `<p class="countSeen"><i class="fas fa-headphones-alt"></i>${listMusics[i].countSeen}</p>`);
+            nodeLi.insertAdjacentHTML('beforeend', `
+            <p class="name" onclick="getPageMusic(${listMusics[i].id})">${listMusics[i].name}</p><br>
+            <p class="singer">${listMusics[i].singer}</p>
+            <p class="countSeen"><i class="fas fa-headphones-alt"></i>${listMusics[i].countSeen}</p>`);
             nodeLi.insertAdjacentHTML('beforeend', '<hr>');
             if (i == 99 || i == listMusics.length - 1) {
                 break;
@@ -222,7 +224,7 @@ async function getMusicsGenre(gen) {
 
 function getResetHomePage() {
     removeListHTML("#musicHayNhat li");
-    removeListHTML("#theLoai li");
+    removeListHTML(".theLoai li");
     removeListHTML("#musicTheLoai li");
     removeListHTML("#xemThemMusicsTheLoai p");
     removeListHTML("#xemThemHayNhat p");
@@ -256,14 +258,13 @@ async function getPageMusic(musicID) {
 
     // set page music display to block
     setPageNone();
-    blockHTML("pageMusic");
+    flexHTML("pageMusic");
     document.getElementById("nameMusic").textContent = `${listMusics[index].name}`;
     document.getElementById("singerTitleMusic").textContent = `${listMusics[index].singer}`;
     let iframeID = document.querySelector("#pageMusic iframe");
     iframeID.src = listMusics[index].iframeUrl;
-    document.getElementById("authorMusic").textContent = `Sáng tác: ${listMusics[index].author}`;
-    document.getElementById("singerMusic").textContent = `Ca sĩ: ${listMusics[index].singer}`;
-    document.getElementById("lyricsMusic").innerText = `Lời bài hát:\n${listMusics[index].lyrics}`;
+    document.getElementById("authorMusic").textContent = `${listMusics[index].author}`;
+    document.getElementById("lyricsMusic").innerText = `${listMusics[index].lyrics}`;
     let gen = listMusics[index].genre.toUpperCase();
     document.querySelector("#musicSameGenre h1").textContent = gen;
     let listMusicsGenre = {};
@@ -288,7 +289,7 @@ let uploadID = document.getElementsByClassName("uploadID");
 for (let i = 0; i < 2; ++i) {
     uploadID[i].addEventListener('click', () => {
         setPageNone();
-        flexHTML("dangbaihat");
+        blockHTML("dangbaihat");
     })
     let addUploadID = document.getElementById("addUpload");
     addUploadID.addEventListener('click', () => {
@@ -390,7 +391,7 @@ let loginID = document.getElementsByClassName("loginID");
 for (let i = 0; i < 2; ++i) {
     loginID[i].addEventListener('click', () => {
         setPageNone();
-        blockHTML("dangnhap");
+        flexHTML("dangnhap");
     })
 }
 
@@ -433,5 +434,36 @@ async function processLogin() {
 
 processLogin();
 
+//process signup for user
 
+let signupID = document.getElementsByClassName("signupID");
+for (let i = 0; i < 1; ++i) {
+    signupID[i].addEventListener('click', () => {
+        setPageNone();
+        flexHTML("dangky");
+    })
+}
+
+let addSignup = document.getElementById("addSignup");
+
+async function processSignup() {
+    let emailSignup = document.getElementById("emailSignup");
+    let usernameSignup = document.getElementById("usernameSignup");
+    let passwordSignup = document.getElementById("passwordSignup");
+    addSignup.addEventListener("click", () => {
+        let newUser = {
+            "userName": `${usernameSignup.value}`,
+            "passWord": `${passwordSignup.value}`,
+            "email": `${emailSignup.value}`
+        };
+        postData (userUrl, newUser);
+    })
+}
+
+processSignup();
+
+setPageNone();
+blockHTML("adminHomePage");
+noneHTML("header");
+noneHTML("footer");
 
