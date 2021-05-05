@@ -462,8 +462,4 @@ async function processSignup() {
 
 processSignup();
 
-setPageNone();
-blockHTML("adminHomePage");
-noneHTML("header");
-noneHTML("footer");
 

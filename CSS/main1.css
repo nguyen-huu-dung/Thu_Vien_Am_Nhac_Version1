@@ -10,6 +10,7 @@ body {
 }
 
 
+
 /* Header*/
 
 #header{
@@ -115,16 +116,20 @@ body {
     color: black;
     margin-top: 18px;
 }
+
 .theLoai li{
     box-shadow:  0 4px 8px 0 rgba(110, 131, 163, 0.2), 0 6px 20px 0 rgba(135, 190, 212, 0.19);
 }
+
 .theLoai li:hover{
     cursor: pointer;
     background: rgb(146, 184, 196);
 }
+
 .listMenu{
     display: none;
 }
+
 .listMenuResponsive{
     display: none;
 }
@@ -142,6 +147,7 @@ body {
     #iconMenu{
         display: block !important;
     }
+
     #listMenuID ul{
         position: absolute;
         width: 200px;
@@ -152,6 +158,7 @@ body {
         text-align: left;
         list-style-type: none;
     }
+
     #listMenuID li{
         width: auto;
         height: 40px;
@@ -159,10 +166,12 @@ body {
         border-bottom: 1px solid #e8e8e8;
         padding: 0 1em;
     }
+
     #listMenuID li:hover{
         cursor: pointer;
         background: rgb(116, 171, 216);
     }
+    
     #listMenuID .theLoai{
         position: absolute;
         left: 200px;
@@ -171,9 +180,11 @@ body {
         color: white;
         top: 32px;
     }
+
     .listMenu{
         display: none;
     }
+
     .listMenuResponsive{
         display: block;
     }
@@ -191,9 +202,11 @@ body {
     .viewSearch{
         display: none;
     }
+
     .viewSearchResponsive {
         display: block;
     }
+
     .viewIconSearch{
         display: block !important;
     }
@@ -204,12 +217,15 @@ body {
     .viewLogo{
         display: block;
     }
+
     .viewLogoResponsive{
         display: none;
     }
+
     #listMenuID ul{
         width: 150px;
     }
+
     #listMenuID .theLoai{
         left: 150px;
         width: 150px;
@@ -232,16 +248,19 @@ body {
     height: 480px;
     background-size: 100% 100%;
 }
+
 #bannertext {
     padding-top: 170px;
     padding-left: 55%;
     padding-right: 30px;
 }
+
 #bannertext h2 {
     font-weight: bold;
     font-size: 22px;
     color: white;
 }
+
 #des {
     font-size: 16px;
     font-style: italic;
@@ -274,6 +293,7 @@ body {
     color: #094c72;
     padding-bottom: 5px;
 }
+
 .headingclickable:hover {
    font-weight: bold;
    cursor: pointer;
@@ -305,12 +325,14 @@ body {
 .xephang ol {
     padding: 15px 25px 0px 45px;
 }
+
 .xephang li {
     padding: 5px;
     font-size: 13px;
     font-weight: bold;
     text-transform: capitalize;
 }
+
 .xephang p {
     display: inline-block;
 }
@@ -318,35 +340,42 @@ body {
 .name {
     font-weight: bold;
 }
+
 .name:hover {
     text-decoration: underline;
     cursor: pointer;
 }
+
 .singer {
     font-style: italic;
     font-weight: normal;
 }
+
 .countSeen {
     color: #0079bf;
     font-weight: normal;
     font-size: 12px;
     float: right;
 }
+
 hr {
     border: none;
     height: 1.1px;
     margin: 8px 0px 8px -25px;
     background-color: #e4f0f6;
 }
+
 .xemthem {
     text-align: center;
 }
+
 .xemthem p {
     color: #094c72;
     font-weight: normal;
     font-size: 12px;
     padding-bottom: 15px;
 }
+
 .xemthem p:hover {
     text-decoration: underline;
     cursor: pointer;
@@ -356,13 +385,16 @@ hr {
     .homePageContent{
         flex-direction: column;
     }
+
     .listHomePage{
         margin: 20px auto;
         width: 90%;
     }
+    
     #banner {
         background-size: 140% 100%;
     }
+
     #bannertext{
         padding-top: 135px;
         padding-left: 25%;
@@ -375,6 +407,7 @@ hr {
         height: 360px !important;
         background-position: 0px -133px;
     }
+
     #bannertext{
         padding-top: 215px;
         padding-left: 5%;
@@ -446,9 +479,11 @@ hr {
     #pageMusicContent{
         padding: 20px 10px 20px 10px;
     }
+
     #titlePageMusic{
         padding: 5px;
     }
+
     #pageMusicLeft{
         margin: 0px 5px;
     }
@@ -459,15 +494,19 @@ hr {
         flex-direction: column;
         margin: auto;
     }
+
     #pageMusicLeft{
         width: 100%;
     }
+
     #titlePageMusic{
         padding-left: 20px;
     }
+
     #pageMusicRight{
         width: 100%;
     }
+
     #pageMusicRight img{
         display: none;
     }
@@ -478,18 +517,23 @@ hr {
         width: 320px;
         height: 420px;
     }
+    
     #titlePageMusic{
         text-align: center;
     }
+
     #pageMusicLeft{
         width: 420px;
     }
+
     #pageMusicRight{
         width: 100%;
     }
+
     #titlePageMusic{
         padding-left: 0px;
     }
+
     #pageMusicLeft{
         margin: 0px;
     }
@@ -499,9 +543,11 @@ hr {
     #pageMusicLeft{
         width: 100%;
     }
+
     #infoMusic {
         padding: 15px;
     }
+
     #pageMusicContent{
         margin: 0;
     }
@@ -520,6 +566,7 @@ hr {
     display: inline-block;
     font-size: 15px;
 }
+
 .button2 {
     background-color: #f9f9f9; 
     border: solid 2px;
@@ -533,10 +580,12 @@ hr {
     display: inline-block;
     font-size: 15px;
 }
+
 .button1:hover {
     background-color: #055a8c;
     cursor: pointer;
 }
+
 .button2:hover {
     border-color: #055a8c;
     color: #055a8c;
@@ -553,33 +602,41 @@ hr {
     background: #f9f9f9;
     padding-top: 50px;
 }
+
 /* dang bai hat */
 @media screen and (min-width: 600px){
     .inputleft {
         width: 48%;
         float: left;
     }
+
     .inputright {
         width: 48%;
         float: right;
     }
+
     .inputleft input {
         width: 95%;
         margin: 0px 0px -5px 20px;
     }
+
     .inputright input {
         width: 95%;
         margin: 0px 15px -5px 0px;
     }
+    
     .inputleft p {
         margin: 15px 0px 0px 20px;
     }
+
     .inputright p {
         margin: 15px 15px 0px 0px;
     }
+
     .longinput, .longtextarea {
         width: 95%;
     }
+
     #linkadd {
         padding-top: 15px;
     }
@@ -590,6 +647,7 @@ hr {
         width: 30%;
         margin: 20px 20px 20px 0px;
     }
+
     #upload {
         width: 64%;
         float: left;
@@ -602,6 +660,7 @@ hr {
         margin: auto;
         margin-top: 20px;
     }
+
     #upload {
         max-width: 750px;
         margin: auto;
@@ -611,6 +670,7 @@ hr {
     .huongdan {
         margin: 20px;
     }
+
     #upload {
         margin: 20px;
     }
@@ -619,15 +679,19 @@ hr {
     .huongdan {
         margin: 20px;
     }
+
     #upload {
         margin: 20px;
     }
+
     #upload p {
         margin: 0px 15px 5px 20px;
     }
+
     .inputleft {
         padding-top: 15px;
     }
+
     .inputleft input, .inputright input, .longinput, .longtextarea {
         width: 92%;
     }
@@ -636,15 +700,19 @@ hr {
     .huongdan {
         margin: 20px;
     }
+
     #upload {
         margin: 20px;
     }
+
     #upload p {
         margin: 0px 15px 5px 20px;
     }
+
     .inputleft {
         padding-top: 15px;
     }
+
     .inputleft input, .inputright input, .longinput, .longtextarea {
         width: 88%;
     }
@@ -654,10 +722,12 @@ hr {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
 #upload {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
 .heading {
     text-transform: uppercase;
     font-size: 15px;
@@ -667,54 +737,81 @@ hr {
     padding-bottom: 5px;
     font-weight: bold;
 }
+
 .huongdan p {
     padding: 15px 20px 20px 25px;
     font-size: 13px;
     text-align: justify;
 }
+
 #upload p {
     font-size: 13px;
     font-weight: bold;
 }
+
 .halfinput {
     margin: 0px 15px 10px 20px;
+    border-radius: 3px;
+    border-color: rgb(160, 158, 158) !important;
 }
+
 .inputleft input {
     padding: 2px 2px 2px 8px;
     border: 1px solid black;
 }
+
 .inputright input {
     padding: 2px 2px 2px 8px;
     border: 1px solid black;
 }
+
 .longinput {
     margin: 0px 15px 10px 20px;
     padding: 2px 2px 2px 8px;
     border: 1px solid black;
+    border-radius: 3px;
+    border-color: rgb(160, 158, 158) !important;
 }
+
 .clearfloat {
     float: none;
     clear: both;
 }
+
 .longtextarea {
     height: 150px;
     margin: 0px 15px 20px 20px;
     padding: 8px 2px 2px 8px;
     border: 1px solid black;
+    border-radius: 3px;
+    border-color: rgb(160, 158, 158) !important;
 }
+
+input, textarea{
+    outline: unset;
+}
+
+input:hover, textarea:hover{
+    border-color: rgb(77, 148, 170) !important;
+}
+
 #linkadd {
     margin: 0px 15px 0px 20px;
 }
+
 #lyricsadd {
     margin: 0px 15px 5px 20px;
 }
+
 .center {
     display: flex;
     justify-content: center;
 }
+
 .result{
     text-align: center;
 }
+
 /* yeu cau bai hat */
 @media screen and (min-width: 1024px){
     .huongdan {
@@ -722,6 +819,7 @@ hr {
         width: 30%;
         margin: 20px 20px 20px 0px;
     }
+
     #request {
         width: 64%;
         float: left;
@@ -734,6 +832,7 @@ hr {
         margin: auto;
         margin-top: 20px;
     }
+
     #request {
         max-width: 750px;
         margin: auto;
@@ -743,6 +842,7 @@ hr {
     .huongdan {
         margin: 20px;
     }
+
     #request {
         margin: 20px;
     }
@@ -751,9 +851,11 @@ hr {
     .huongdan {
         margin: 20px;
     }
+
     #request {
         margin: 20px;
     }
+
     #request p {
         margin: 0px 15px 5px 20px;
     }
@@ -762,9 +864,11 @@ hr {
     .huongdan {
         margin: 20px;
     }
+
     #request {
         margin: 20px;
     }
+
     #request p {
         margin: 0px 15px 5px 20px;
     }
@@ -774,16 +878,20 @@ hr {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
 #request p {
     font-size: 13px;
     font-weight: bold;
 }
+
 .longp {
     margin: 0px 15px 5px 20px;
 }
+
 #request .inputdiv {
     padding: 15px 0px;
 }
+
 /* lien he gop y */
 @media screen and (min-width: 1024px){
     .huongdan {
@@ -791,6 +899,7 @@ hr {
         width: 30%;
         margin: 20px 20px 20px 0px;
     }
+
     #suggestion {
         width: 64%;
         float: left;
@@ -803,6 +912,7 @@ hr {
         margin: auto;
         margin-top: 20px;
     }
+
     #suggestion {
         max-width: 750px;
         margin: auto;
@@ -812,6 +922,7 @@ hr {
     .huongdan {
         margin: 20px;
     }
+
     #suggestion {
         margin: 20px;
     }
@@ -820,9 +931,11 @@ hr {
     .huongdan {
         margin: 20px;
     }
+
     #suggestion {
         margin: 20px;
     }
+
     #suggestion p {
         margin: 0px 15px 5px 20px;
     }
@@ -831,9 +944,11 @@ hr {
     .huongdan {
         margin: 20px;
     }
+
     #suggestion {
         margin: 20px;
     }
+
     #suggestion p {
         margin: 0px 15px 5px 20px;
     }
@@ -843,32 +958,35 @@ hr {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
 #suggestion p {
     font-size: 13px;
     font-weight: bold;
 }
+
 .longp {
     margin: 0px 15px 5px 20px;
 }
+
 #suggestion .inputdiv {
     padding-top: 15px;
 }
+
 /* dangnhap*/
 @media screen and (min-width: 480px){
     #dangnhap{
         flex-direction: column;
     }
+
     .inputFillShort {
         width: 65%;
         margin: 0px 0px 10px 15px;
     }
-    .inputFillLong {
-        width: 76%;
-        margin: 0px 0px 10px 15px;
-    }
+
     .flex {
         display: flex;
     }
+
     #login > .body {
         padding: 20px;
     }
@@ -879,11 +997,13 @@ hr {
         justify-content: center;
         flex-direction: row-reverse;
     }
+
     #dangnhap .huongdan {
         float: right;
         width: 375px;
         margin: 20px 20px 20px 0px;
     }
+
     #login {
         width: 375px;
         float: left;
@@ -894,10 +1014,12 @@ hr {
     #dangnhap{
         flex-direction: column;
     }
+
     #dangnhap .huongdan {
         margin: auto;
         width: 375px;
     }
+
     #login {
         margin: auto;
         width: 375px;
@@ -907,19 +1029,23 @@ hr {
     #dangnhap{
         flex-direction: column;
     }
+
     #dangnhap .huongdan {
         margin: auto;
         width: 88%;
     }
+
     #login {
         margin: auto;
         width: 88%;
     }
-    .inputFillShort, .inputFillLong {
+
+    .inputFillShort {
         width: 99%;
         margin: auto;
         margin-bottom: 10px;
     }
+
     #login > .body {
         padding: 15px;
     }
@@ -929,59 +1055,66 @@ hr {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
 #login button {
     text-align: center;
 }
+
 .inputFillShort {
     padding: 2px 2px 2px 8px;
     border: 1px solid black;
+    border-radius: 3px !important;
+    border-color: rgb(160, 158, 158) !important;
 }
-.inputFillLong {
-    padding: 2px 2px 2px 8px;
-    border: 1px solid black;
-}
+
 .loginp {
     font-size: 13px;
     font-weight: bold;
     padding-bottom: 5px;
+    min-width: 120px;
 }
+
 #forgetpass {
     font-size: 11px;
     color: #094c72;
     text-decoration: underline;
     margin: -8px 0px 10px 0px !important;
 }
+
 #forgetpass:hover {
     cursor: pointer;
 }
+
 #loginwith > .fa-facebook {
     color: #3b5998;
     font-size: 30px;
 }
+
 #loginwith > .fa-google {
     color: #de5246;
     margin: 5px 0px 0px 10px;
     font-size: 30px;
 }
+
 #loginwith > .fab:hover {
     cursor: pointer;
 }
+
 /* dang ky */
 @media screen and (min-width: 480px){
     #dangky{
         flex-direction: column;
     }
+
     .inputFillShort {
         width: 65%;
         margin: 0px 0px 10px 15px;
     }
-    .inputFillLong {
-        width: 76%;
-        margin: 0px 0px 10px 15px;
-    }
+
     .flex {
         display: flex;
     }
+
     #signup > .body {
         padding: 20px;
     }
@@ -992,11 +1125,13 @@ hr {
         justify-content: center;
         flex-direction: row-reverse;
     }
+
     #dangky .huongdan {
         float: right;
         width: 375px;
         margin: 20px 20px 20px 0px;
     }
+
     #signup {
         width: 475px;
         float: left;
@@ -1007,10 +1142,12 @@ hr {
     #dangky{
         flex-direction: column;
     }
+
     #dangky .huongdan {
         margin: auto;
         width: 375px;
     }
+
     #signup {
         margin: auto;
         width: 475px;
@@ -1020,19 +1157,23 @@ hr {
     #dangky{
         flex-direction: column;
     }
+
     #dangky .huongdan {
         margin: auto;
         width: 88%;
     }
+
     #dangky {
         margin: auto;
         width: 88%;
     }
-    .inputFillShort, .inputFillLong {
+
+    .inputFillShort {
         width: 99%;
         margin: auto;
         margin-bottom: 10px;
     }
+
     #signup > .body {
         padding: 15px;
     }
@@ -1042,31 +1183,27 @@ hr {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
 #signup button {
     text-align: center;
 }
+
 .inputFillShort {
     padding: 2px 2px 2px 8px;
     border: 1px solid black;
 }
-.inputFillLong {
-    padding: 2px 2px 2px 8px;
-    border: 1px solid black;
-}
-.loginp {
-    font-size: 13px;
-    font-weight: bold;
-    padding-bottom: 5px;
-}
+
 #loginwith > .fa-facebook {
     color: #3b5998;
     font-size: 30px;
 }
+
 #loginwith > .fa-google {
     color: #de5246;
     margin: 5px 0px 0px 10px;
     font-size: 30px;
 }
+
 #loginwith > .fab:hover {
     cursor: pointer;
 }
@@ -1095,16 +1232,19 @@ hr {
     padding: 15px 10px 15px 15px;
     font-size: 14px;
 }
+
 #infoRight p {
     background: #0079bf;
     color: white;
     font-size: 12px;
     text-align: center;
 }
+
 #footer li:hover {
     color: white;
     cursor: pointer;
 }
+
 #footer i {
     font-size: 30px;
 }
@@ -1113,17 +1253,21 @@ hr {
     #footer{
         flex-direction: column;
     }
+
     #infoRight{
         background-color: #0079bf;
         padding: 0;
         width: 100%;
     }
+
     #infoLeft{
         justify-content: center;
     }
+
     .listHomePage img{
         display: none !important;
     }
+
     .name{
         min-width: 300px;
     }
@@ -1216,21 +1360,26 @@ hr {
 table {
     width:100%;
 }
+
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
     text-align: center;
 }
+
 th, td {
     padding: 15px;
     
 }
+
 #t01 tr:nth-child(even) {
     background-color: #eee;
 }
+
 #t01 tr:nth-child(odd) {
    background-color: #fff;
 }
+
 #t01 th {
     background-color: black;
     color: white;
@@ -1246,6 +1395,7 @@ th, td {
     border-radius: 8px;
     outline: unset;
 }
+
 .longinputAdmin {
     width: 631px;
     margin: 5px 15px 10px 0px;
@@ -1256,6 +1406,7 @@ th, td {
     border-radius: 8px;
     outline: unset;
 }
+
 .longtextareaAdmin {
     width: 631px;
     height: 150px;
