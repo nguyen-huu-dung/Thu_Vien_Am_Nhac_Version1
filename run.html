@@ -22,17 +22,16 @@
                     <ol class="theLoai viewTL">
                     </ol>
                 </li>
-                <li>
-                    <p class="uploadID">Đăng bài hát</p>
-                </li>
-                <li>
-                    <p class="requestID">Yêu cầu bài hát</p>
-                </li>
-                <li>
-                    <p class="suggestionID">Góp ý</p>
-                </li>
-                <li>
-                    <p class="loginID">Đăng nhập</p>
+                <li class="uploadID">Đăng bài hát</li>
+                <li class="requestID">Yêu cầu bài hát</li>
+                <li class="suggestionID">Góp ý</li>
+                <li class="loginID">Đăng nhập</li>
+                <li class="accountID">
+                    <p class="nameDisplay">Tên người dùng</p>
+                    <ol class="account viewAccount">
+                        <li class="yeuThichID">Danh sách yêu thích</li>
+                        <li class="signoutID">Đăng xuất</li>
+                    </ol>
                 </li>
             </ul>
         </div>
@@ -47,6 +46,13 @@
             <i class="viewIconSearch iconHeader fa fa-search" id="iconSearch" onclick="viewSearchHeader()"></i>
         </div>
         <div class="rightHeader" id="rightMenuID">
+            <a class="accountID">
+                <p class="nameDisplay">Tên người dùng</p>
+                <ol class="account">
+                    <li class="yeuThichID">Danh sách yêu thích</li>
+                    <li class="signoutID">Đăng xuất</li>
+                </ol>
+            </a>
             <a class="loginID">Đăng nhập</a>
             <a class="suggestionID">Góp ý</a>
             <a class="requestID">Yêu cầu bài hát</a>
@@ -79,46 +85,57 @@
                     <div class="body xephang">
                         <ol id="musicTheLoai">
                         </ol>
-                        <div class="xemthem" id="xemThemMusicsTheLoai">
+                        <!-- <div class="xemthem" id="xemThemMusicsTheLoai">
                             <p>Xem thêm</p>
+                        </div> -->
+                        <div id="changemusicTheLoai" class="changeList">
+                            <p id="countmusicTheLoai" class="countList">1</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="listHomePage" id="demo">
+            <div class="listHomePage">
                 <div>
                     <h1 class="headingclickable">Top 100 bài hát hay nhất</h1>
                 </div>
                 <div class="body xephang">
                     <ol id="musicHayNhat">
                     </ol>
-                    <div class="xemthem" id="xemThemHayNhat">
+                    <!-- <div class="xemthem" id="xemThemHayNhat">
                         <p>Xem thêm</p>
+                    </div> -->
+                    <div id="changemusicHayNhat" class="changeList">
+                        <p id="countmusicHayNhat" class="countList">1</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- day la page music -->
+
     <div id="pageMusic" class="container">
-        <div id="pageMusicContent">
-            <div id="pageMusicLeft">
-                <div id="titlePageMusic">
-                    <a id="nameMusic"></a>&ensp;/
-                    <a id="singerTitleMusic"></a>
-                    <div id="iframePageMusic">
-                        <iframe src="" width="620px" height="320px" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+        <div class="pageMusicContent">
+            <div class="pageMusicLeft">
+                <div class="titlePageMusic">
+                    <a class="nameMusic"></a>&ensp;
+                    <a class="singerTitleMusic"></a>
+                    <div class="iframePageMusic">
+                        <iframe src="" width="620px" height="320px" frameborder="0" allowfullscreen
+                            allow="autoplay"></iframe>
                     </div>
                 </div>
-                <div id="infoMusic">
+                <div class="infoMusic">
                     <a><strong>Sáng tác: </strong></a>
-                    <a id="authorMusic"></a><br>
-                    <a><strong>Lời bài hát: </strong></a><hr>
-                    <p id="lyricsMusic"></p>
+                    <a class="authorMusic"></a><br>
+                    <a><strong>Lời bài hát: </strong></a>
+                    <hr>
+                    <p class="lyricsMusic"></p>
                     <div>
                     </div>
                 </div>
             </div>
-            <div id="pageMusicRight">
+            <div class="pageMusicRight">
                 <div id="musicSameGenre">
                     <div>
                         <h1 class="headingclickable"></h1>
@@ -126,8 +143,11 @@
                     <div class="body xephang">
                         <ol id="musicSame">
                         </ol>
-                        <div class="xemthem" id="xemThemMusicsSame">
+                        <!-- <div class="xemthem" id="xemThemMusicsSame">
                             <p>Xem thêm</p>
+                        </div> -->
+                        <div id="changemusicSame" class="changeList">
+                            <p id="countmusicSame" class="countList">1</p>
                         </div>
                     </div>
                 </div>
@@ -137,6 +157,52 @@
             </div>
         </div>
     </div>
+
+    <!-- day la page danh sach yeu thich -->
+    <div id="YTMusic" class="container">
+        <div class="pageMusicContent" id="pageYT">
+            <div class="pageMusicLeft" id="pageYTLeft">
+                <div class="titlePageMusic" id="titleYT">
+                    <a class="nameMusic" id="nameYT"></a>&ensp;
+                    <a class="singerTitleMusic" id="singerYT"></a>
+                    <div class="iframePageMusic" id="iframeYT">
+                        <iframe src="" width="620px" height="320px" frameborder="0" allowfullscreen
+                            allow="autoplay"></iframe>
+                    </div>
+                </div>
+                <div class="infoMusic" id="infoYT">
+                    <a><strong>Sáng tác: </strong></a>
+                    <a class="authorMusic" id="authorYT"></a><br>
+                    <a><strong>Lời bài hát: </strong></a>
+                    <hr>
+                    <p class="lyricsMusic" id="lyricsYT"></p>
+                    <div>
+                    </div>
+                </div>
+            </div>
+            <div class="pageMusicRight" id="pageYTRight">
+                <!-- phan bai hat yeu thich cua user -->
+                <div id="yeuThichContent">
+                    <div>
+                        <h1 class="headingclickable">Danh sách yêu thích</h1>
+                    </div>
+                    <div class="body xephang">
+                        <ol id="musicYeuThich">
+                        </ol>
+                        <p id="countMusicYT">...Chưa có bài hát nào trong danh sách yêu thích...</p>
+                        <!-- <div class="xemthem" id="xemThemYeuThich">
+                            <p>Xem thêm</p>
+                        </div> -->
+                        <div id="changemusicYeuThich" class="changeList">
+                            <p id="countmusicYeuThich" class="countList">1</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- phan bai hat yeu thich cua user -->
+            </div>
+        </div>
+    </div>
+
     <!-- Hello, this is dang bai hat -->
     <div id="dangbaihat" class="containerfeatures">
         <div class="huongdan">
@@ -331,7 +397,7 @@
                 </div>
                 <p id="loginResult" class="result"></p>
             </form>
-            <div class="center"> 
+            <div class="center">
                 <button id="addLogin" class="button1">Đăng nhập</button>
                 &nbsp;
                 <button class="signupID button2">Đăng ký ngay</button>
@@ -367,11 +433,11 @@
             </div>
             <form class="body">
                 <div class="flex">
-                    <p class="loginp">Điền e-mail&nbsp;&nbsp;&nbsp;</p>
+                    <p class="loginp">Điền e-mail</p>
                     <input class="inputFillShort" type="text" placeholder="Enter e-mail" id="emailSignup">
                 </div>
                 <div class="flex">
-                    <p class="loginp">Tên đăng nhập &nbsp;&nbsp;&nbsp;</p>
+                    <p class="loginp">Tên đăng nhập</p>
                     <input class="inputFillShort" type="text" placeholder="Create username" id="usernameSignup">
                 </div>
                 <div class="flex">
@@ -382,9 +448,9 @@
                     <p class="loginp">Hoặc đăng ký với</p>
                     <p id="loginwith"><i class="fab fa-facebook"></i> <i class="fab fa-google"></i></p>
                 </div>
-                <p id="loginResult" class="result"></p>
+                <p id="signupResult" class="result"></p>
             </form>
-            <div class="center"> 
+            <div class="center">
                 <button id="addSignup" class="button1">Tạo tài khoản</button>
             </div>
         </div>
@@ -429,7 +495,8 @@
                             <label for="iframeMusicAdmin">Iframe Url:</label>
                             <input class="longinputAdmin" type="text" id="iframeMusicAdmin" placeholder="iframeUrl...">
                             <label for="lyricsMusicAdmin">Lời bài hát:</label>
-                            <textarea class="longtextareaAdmin" id="lyricsMusicAdmin" placeholder="lyrics..."></textarea>
+                            <textarea class="longtextareaAdmin" id="lyricsMusicAdmin"
+                                placeholder="lyrics..."></textarea>
                         </div>
                     </form>
                     <p id="resultMusicAdmin"></p>
@@ -439,7 +506,8 @@
                     </div>
                     <div id="filter">
                         <label for="searchID">Tìm kiếm:</label>
-                        <input type="text" class="halfinputAdmin" id="searchID" placeholder="Tên bài hát or ca sĩ..." autocomplete="off">
+                        <input type="text" class="halfinputAdmin" id="searchID" placeholder="Tên bài hát or ca sĩ..."
+                            autocomplete="off">
                         <label for="filterAdminMusic">Thể Loại:</label>
                         <select id="filterAdminMusic" form="filterForm" name="genreList">
                             <option value="all">Tất cả</option>
@@ -469,11 +537,13 @@
                                 <label for="nameUploadAdmin">Tên bài hát:</label>
                                 <input class="halfinputAdmin" type="text" id="nameUploadAdmin" placeholder="name...">
                                 <label for="authorUploadAdmin">Sáng tác:</label>
-                                <input class="halfinputAdmin" type="text" id="authorUploadAdmin" placeholder="author...">
+                                <input class="halfinputAdmin" type="text" id="authorUploadAdmin"
+                                    placeholder="author...">
                             </div>
                             <div style="display: flex; flex-direction: column;">
                                 <label for="singerUploadAdmin">Ca sĩ:</label>
-                                <input class="halfinputAdmin" type="text" id="singerUploadAdmin" placeholder="singer...">
+                                <input class="halfinputAdmin" type="text" id="singerUploadAdmin"
+                                    placeholder="singer...">
                                 <label for="genreUploadAdmin">Thể loại:</label>
                                 <input class="halfinputAdmin" type="text" id="genreUploadAdmin" placeholder="genre...">
                             </div>
@@ -482,7 +552,8 @@
                             <label for="iframeUploadAdmin">Iframe Url:</label>
                             <input class="longinputAdmin" type="text" id="iframeUploadAdmin" placeholder="iframeUrl...">
                             <label for="lyricsUploadAdmin">Lời bài hát:</label>
-                            <textarea class="longtextareaAdmin" id="lyricsUploadAdmin" placeholder="lyrics..."></textarea>
+                            <textarea class="longtextareaAdmin" id="lyricsUploadAdmin"
+                                placeholder="lyrics..."></textarea>
                         </div>
                     </form>
                     <p id="resultUploadAdmin"></p>
@@ -577,11 +648,13 @@
             </p>
         </li>
     </div>
+    <!--<script src="/DATA/data.js"></script> -->
     <script src="/DATA/dataController.js"></script>
     <script src="/Controllers/adminController.js"></script>
-    <script src="/Controllers/changePageControllers.js"></script>
-    <script src="/Controllers/userControllers.js"></script>
+    <script src="/Controllers/loginController.js"></script>
+    <script src="/Controllers/changePageController.js"></script>
     <script src="/Controllers/changeString.js"></script>
+    <script src="/Controllers/userController.js"></script>
 </body>
 
 </html>

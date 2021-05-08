@@ -1,5 +1,5 @@
 function setPageNone() {
-    let listIdPage = ["homepage", "pageMusic", "dangbaihat", "yeucaubaihat", "lienhegopy", "dangnhap","dangky", "adminHomePage", "theLoaiContent", "logoHomePage", "searchMusic"];
+    let listIdPage = ["homepage", "pageMusic", "dangbaihat", "yeucaubaihat", "lienhegopy", "dangnhap","dangky", "YTMusic", "pageYTLeft", "adminHomePage", "theLoaiContent", "logoHomePage", "searchMusic"];
     for (let x of listIdPage) {
         noneHTML(x);
     }
@@ -8,12 +8,16 @@ function setPageNone() {
     if (iframeID != null) {
         iframeID.src = "";
     }
+    iframeID = document.querySelector("#pageYT iframe");
+    if (iframeID != null) {
+        iframeID.src = "";
+    }
     setInputNone();
     setChooseAdmin();
 }
 
 function setInputNone() {
-    let listIdInput = ["upload", "request", "suggestion", "login"];
+    let listIdInput = ["upload", "request", "suggestion", "login", "signup"];
     for (let x of listIdInput) {
         document.querySelector(`#${x} form`).reset();
         document.getElementById(`${x}Result`).textContent = "";

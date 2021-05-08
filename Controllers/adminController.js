@@ -32,6 +32,12 @@ function printList(list = [], countPage, namePage) {
     let tableID = document.querySelector(`#${namePage}Content table`);
     let i = (countPage - 1) * 10;
     let lastInPage = (countPage - 1) * 10 + 10;
+    if(list.length <= 10) {
+        document.getElementById(`changePage${namePage}`).style.display = "none";
+    }
+    else {
+        document.getElementById(`changePage${namePage}`).style.display = "flex";
+    }
     if ((countPage - 1) == 0) {
         document.getElementById(`countPage${namePage}`).textContent = countPage;
         document.getElementById(`prePage${namePage}`).style.visibility = "hidden";
@@ -58,7 +64,7 @@ function printList(list = [], countPage, namePage) {
             i++;
         }
         if (i < list.length - 1) {
-            document.getElementById(`nextPage${namePage}`).style.visibility = "visible"
+            document.getElementById(`nextPage${namePage}`).style.visibility = "visible";
         }
     }
     else if (namePage == "Upload") {

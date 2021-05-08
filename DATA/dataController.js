@@ -1,5 +1,5 @@
 let musicUrl = 'https://6073fb61066e7e0017e78b99.mockapi.io/api/thu-vien-am-nhac/musics';
-let adminUrl = 'https://6073fb61066e7e0017e78b99.mockapi.io/api/thu-vien-am-nhac/admins';
+let accountUrl = 'https://6073fb61066e7e0017e78b99.mockapi.io/api/thu-vien-am-nhac/accounts';
 let uploadUrl = 'https://6073fb61066e7e0017e78b99.mockapi.io/api/thu-vien-am-nhac/uploadSongs';
 let requestUrl = 'https://6073fb61066e7e0017e78b99.mockapi.io/api/thu-vien-am-nhac/requestSongs';
 let suggestionUrl = 'https://6074636d066e7e0017e79c51.mockapi.io/api/C4EJS110-THU-VIEN-AM-NHAC/suggestions';
@@ -46,3 +46,40 @@ async function deleteData(url, idData) {
     });
     return response.json();
 }
+
+
+// let accountList = [
+//     {
+//         userName: "admin1",
+//         passWord: "111111",
+//         email: "admin1@gmail.com",
+//         role: "admin"
+//     },
+//     {
+//         userName: "admin2",
+//         passWord: "111111",
+//         email: "admin2@gmail.com",
+//         role: "admin"
+//     },
+//     {
+//         userName: "user1",
+//         passWord: "111111",
+//         email: "user1@gmail.com",
+//         role: "user"
+//     },
+//     {
+//         userName: "user2",
+//         passWord: "111111",
+//         email: "user2@gmail.com",
+//         role: "user"
+//     },
+//     {
+//         userName: "user3",
+//         passWord: "111111",
+//         email: "user3@gmail.com",
+//         role: "user"
+//     }
+// ]
+
+// let index = 4;
+// postData(accountUrl, accountList[index]);
