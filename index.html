@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
-<body id="body">
+<body id="body" onbeforeunload="closeWindow()">
     <!-- Hello, this is header -->
 
     <div id="header" class="animate__animated animate__fadeInDown">
@@ -711,6 +711,7 @@
     <script src="./Controllers/changePageController.js"></script>
     <script src="./Controllers/changeString.js"></script>
     <script src="./Controllers/userController.js"></script>
+    <script src="./Controllers/reloadWeb.js"></script>
 </body>
 
 </html>

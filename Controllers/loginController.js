@@ -3,16 +3,28 @@
 let loginID = document.getElementsByClassName("loginID");
 let imageDangNhap = document.getElementById("imageDangNhap");
 
+function resetLogin() {
+    setPageNone();
+    blockHTML("dangnhap");
+    imageDangNhap.style.display = "block";
+}
+
 for (let i = 0; i < 3; ++i) {
     loginID[i].addEventListener('click', () => {
-        setPageNone();
-        blockHTML("dangnhap");
-        imageDangNhap.style.display = "block";
+        resetLogin();
+        localStorage.setItem("namePage", "login");
     })
 }
 
 let addLoginID = document.getElementById("addLogin");
 addLoginID.addEventListener('click', processLogin);
+
+function resetAdminHome() {
+    setPageNone();
+    blockHTML("adminHomePage");
+    noneHTML("header");
+    noneHTML("footer");
+}
 
 async function processLogin() {
     let response = await fetch(accountUrl);
@@ -41,11 +53,10 @@ async function processLogin() {
             }
         }
         if (role == "admin") {
-            setPageNone();
-            blockHTML("adminHomePage");
-            noneHTML("header");
-            noneHTML("footer");
+            resetAdminHome();
             document.querySelector("#login form").reset();
+            localStorage.setItem("loginState", 0);
+            localStorage.setItem("namePage", "adminHome");
         }
         else if (role == "user") {
             for (let i = 0; i < 2; ++i) {
@@ -61,6 +72,9 @@ async function processLogin() {
             processClickHomePage(loginState);
             getResetHomePage(loginState);
             document.querySelector("#login form").reset();
+            localStorage.setItem("namePage", `homePage`);
+            localStorage.setItem("loginState", `${loginState}`);
+            localStorage.setItem("nameUser", `${nameUser}`);
         }
         else {
             resultLogin.style.color = "red";
@@ -94,6 +108,7 @@ async function getPageYT(loginState) {
     setPageNone();
     flexHTML("YTMusic");
     noneHTML("logoYT");
+    localStorage.setItem("namePage", "musicYTPage");
     removeListHTML("#musicYeuThich li");
     document.getElementById("pageYTRight").style.width = "50%";
     if (loginState != -1) {
@@ -123,6 +138,8 @@ async function getMusicYT(musicID) {
     blockHTML("pageYTLeft");
     blockHTML("logoYT");
     document.getElementById("pageYTRight").style.width = "35%";
+    localStorage.setItem("namePage", "musicYPage");
+    localStorage.setItem("musicID", `${musicID}`);
     let index = 0;
     for (let x of listMusics) {
         if (x.id == musicID) break;
@@ -153,20 +170,20 @@ async function processPageYT(musicID, loginState, indexLi) {
     let musicUpdate = listMusics[index];
     let listLiYT = document.querySelectorAll("#musicYeuThich li");
     let i;
-    for(i = 0; nodeLiYT = listLiYT[i]; ++i){
-        if(nodeLiYT.id == indexLi){
+    for (i = 0; nodeLiYT = listLiYT[i]; ++i) {
+        if (nodeLiYT.id == indexLi) {
             nodeLiYT.remove();
             break;
         }
     }
     listLiYT = document.querySelectorAll("#musicYeuThich li");
     let listSttYT = document.querySelectorAll("#musicYeuThich .sttMusic");
-    while(listLiYT[i] != undefined){
-        listSttYT[i].textContent = `${i+1}.`;
+    while (listLiYT[i] != undefined) {
+        listSttYT[i].textContent = `${i + 1}.`;
         i++;
     }
     musicUpdate.listUserYT = musicUpdate.listUserYT.replace(` songYT${loginState}`, "");
-    if(listLiYT[0] == undefined){
+    if (listLiYT[0] == undefined) {
         document.getElementById("countMusicYT").style.display = "block";
     }
     updateData(musicUrl, musicID, musicUpdate);

@@ -4,15 +4,19 @@ function getChoose(choosePage) {
     let choose = document.getElementById(`${choosePage}ID`);
     choose.addEventListener('click', () => {
         if (choosePage == "musicsAdmin") {
+            localStorage.setItem("namePage", "musicsAdmin");
             resetMusicAdmin();
         }
         else if (choosePage == "uploadAdmin") {
+            localStorage.setItem("namePage", "uploadAdmin");
             resetUploadAdmin();
         }
         else if (choosePage == "requestAdmin") {
+            localStorage.setItem("namePage", "requestAdmin");
             resetRequestAdmin();
         }
         else if (choosePage == "suggestionAdmin") {
+            localStorage.setItem("namePage", "suggestionAdmin");
             resetSuggestionAdmin();
         }
         document.getElementById(choosePage).style.display = "block";
@@ -651,5 +655,7 @@ logOut.addEventListener('click', () => {
     blockHTML("homepage");
     flexHTML("header");
     flexHTML("footer");
+    localStorage.setItem("loginState", -1);
+    localStorage.setItem("namePage", "homePage");
 })
 

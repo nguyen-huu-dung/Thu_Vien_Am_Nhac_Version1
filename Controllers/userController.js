@@ -1,4 +1,9 @@
 //process homepage
+
+setPageNone();
+noneHTML("header");
+noneHTML("footer");
+
 //set display homepage to block
 
 function processClickHomePage(loginState) {
@@ -10,10 +15,11 @@ function processClickHomePage(loginState) {
     homePageID.addEventListener('click', clickHomePage);
     function clickHomePage() {
         getResetHomePage(loginState);
+        localStorage.setItem("namePage", "homePage");
     }
 }
 
-processClickHomePage(-1);
+//processClickHomePage(-1);
 
 //process icon menu
 
@@ -399,7 +405,7 @@ function getResetHomePage(loginState) {
 
 
 
-getHomePage(-1);
+//getHomePage(-1);
 
 
 
@@ -417,6 +423,8 @@ async function getPageMusic(musicID, loginState) {
     let musicUpdate = listMusics[index];
     musicUpdate.countSeen += 1;
     updateData(musicUrl, musicID, musicUpdate);
+    localStorage.setItem("namePage", "musicPage");
+    localStorage.setItem("musicID", `${musicID}`);
 
     // set page music display to block
     setPageNone();
@@ -452,11 +460,16 @@ async function getPageMusic(musicID, loginState) {
 
 //process upload music
 
+function resetUpload(){
+    setPageNone();
+    blockHTML("dangbaihat");
+}
+
 let uploadID = document.getElementsByClassName("uploadID");
 for (let i = 0; i < 2; ++i) {
     uploadID[i].addEventListener('click', () => {
-        setPageNone();
-        blockHTML("dangbaihat");
+        resetUpload();
+        localStorage.setItem("namePage", "upload");
     })
     let addUploadID = document.getElementById("addUpload");
     if(addUploadID != undefined) addUploadID.remove();
@@ -498,12 +511,16 @@ for (let i = 0; i < 2; ++i) {
 
 
 //process request music
+function resetRequest(){
+    setPageNone();
+    blockHTML("yeucaubaihat");
+}
 
 let requestID = document.getElementsByClassName("requestID");
 for (let i = 0; i < 2; ++i) {
     requestID[i].addEventListener('click', () => {
-        setPageNone();
-        blockHTML("yeucaubaihat");
+        resetRequest();
+        localStorage.setItem("namePage", "request");
     })
     let addRequestID = document.getElementById("addRequest");
     if(addRequestID != undefined) addRequestID.remove();
@@ -532,11 +549,16 @@ for (let i = 0; i < 2; ++i) {
 
 //process lien he gop y
 
+function resetSuggest(){
+    setPageNone();
+    blockHTML("lienhegopy");
+}
+
 let suggestionID = document.getElementsByClassName("suggestionID");
 for (let i = 0; i < 2; ++i) {
     suggestionID[i].addEventListener('click', () => {
-        setPageNone();
-        blockHTML("lienhegopy");
+        resetSuggest();
+        localStorage.setItem("namePage", "suggest");
     })
     let addSuggestionID = document.getElementById("addSuggestion");
     if (addSuggestionID != undefined) addSuggestionID.remove();
@@ -617,11 +639,16 @@ for (let i = 0; i < 2; ++i) {
 
 let signupID = document.getElementsByClassName("signupID");
 
+function resetSignUp(){
+    setPageNone();
+    blockHTML("dangky");
+    imageDangNhap.style.display = "block";
+}
+
 for (let i = 0; i < signupID.length; ++i) {
     signupID[i].addEventListener('click', () => {
-        setPageNone();
-        blockHTML("dangky");
-        imageDangNhap.style.display = "block";
+        resetSignUp();
+        localStorage.setItem("namePage", "signUp");
     })
 }
 
@@ -705,6 +732,8 @@ for (let i = 0; i < 2; ++i) {
         blockHTML("homepage");
         document.querySelector("#accountHPContent h1").style.display = "block";
         blockHTML("accountHP");
+        localStorage.setItem("loginState", -1);
+        localStorage.setItem("namePage", "homePage");
     })
 }
 
