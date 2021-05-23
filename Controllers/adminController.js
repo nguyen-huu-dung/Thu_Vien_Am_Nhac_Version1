@@ -32,7 +32,7 @@ function printList(list = [], countPage, namePage) {
     let tableID = document.querySelector(`#${namePage}Content table`);
     let i = (countPage - 1) * 10;
     let lastInPage = (countPage - 1) * 10 + 10;
-    if(list.length <= 10) {
+    if (list.length <= 10) {
         document.getElementById(`changePage${namePage}`).style.display = "none";
     }
     else {
@@ -128,7 +128,7 @@ function printList(list = [], countPage, namePage) {
             i++;
         }
         if (i < list.length - 1) {
-            document.getElementById(`nextPage${namePage}`).style.visibility = "visible"
+            document.getElementById(`nextPage${namePage}`).style.visibility = "visible";
         }
     }
 
@@ -281,7 +281,7 @@ function resetMusicAdmin() {
     document.getElementById("filterAdminMusic").value = "all";
     document.getElementById("resultMusicAdmin").textContent = "";
     let listButton = document.querySelectorAll("#buttonMusicAdmin button");
-    if(listButton[2]!=null) listButton[2].remove();
+    if (listButton[2] != null) listButton[2].remove();
     let listTr = document.querySelectorAll("#MusicContent table tr");
     for (let i = 1; nodeTr = listTr[i]; ++i) {
         nodeTr.remove();
@@ -316,7 +316,8 @@ function addAdmin(namePage) {
             genre: genreUp.value,
             lyrics: lyricsUp.value,
             iframeUrl: iframeUp.value,
-            countSeen: Math.floor(Math.random() * 100)
+            countSeen: Math.floor(Math.random() * 100),
+            listUserYT: "yeuThich"
         }
         postData(musicUrl, data);
         document.getElementById(`result${namePage}Admin`).style.color = "green";
@@ -384,7 +385,6 @@ async function updateMusicAdmin(musicID) {
                     document.querySelector("#MusicContent form").reset();
                     setTimeout(() => {
                         resetMusicAdmin();
-                        document.getElementById("updateMusicAdmin").remove();
                     }, 1500);
                 }
             })
@@ -431,50 +431,51 @@ async function getUploadAdmin(countPage) {
             listSeenUpload[x.checkSeen].push(x);
         }
     }
-    function filterUploadAdmin(){
+    function filterUploadAdmin() {
         filter(listUpload, listSeenUpload, "Upload");
     }
     document.getElementById("filterAdminUpload").removeEventListener('change', filterUploadAdmin);
     document.getElementById("filterAdminUpload").addEventListener('change', filterUploadAdmin);
 }
 
-function filter(listData = [], listFilter = {}, namePage){
+function filter(listData = [], listFilter = {}, namePage) {
     let filter = document.getElementById(`filterAdmin${namePage}`);
     let listTr = document.querySelectorAll(`#${namePage}Content table tr`);
-        for(let i=1; nodeTr = listTr[i]; ++i){
-            nodeTr.remove();
+    for (let i = 1; nodeTr = listTr[i]; ++i) {
+        nodeTr.remove();
+    }
+    removeChange(namePage);
+    let keyFilter = filter.value;
+    if (keyFilter == "all") {
+        if (listData.length == 0) {
+            blockHTML(`noData${namePage}`);
+            noneHTML(`changePage${namePage}`);
         }
-        removeChange(namePage);
-        let keyFilter = filter.value;
-        if(keyFilter == "all") {
-            if(listData == null){
-                blockHTML(`noData${namePage}`);
-                noneHTML(`changePage${namePage}`);
-            }
-            else{
-                noneHTML(`noData${namePage}`);
-                document.getElementById(`changePage${namePage}`).style.display = "flex";
-                printList(listData, 1, namePage);
-            }
+        else {
+            noneHTML(`noData${namePage}`);
+            document.getElementById(`changePage${namePage}`).style.display = "flex";
+            printList(listData, 1, namePage);
         }
-        else{
-            if(listFilter[keyFilter] == null){
-                blockHTML(`noData${namePage}`);
-                noneHTML(`changePage${namePage}`);
-            }
-            else{
-                noneHTML(`noData${namePage}`);
-                document.getElementById(`changePage${namePage}`).style.display = "flex";
-                printList(listFilter[keyFilter], 1, namePage);
-            }
+    }
+    else {
+        if (listFilter[keyFilter] == null) {
+            blockHTML(`noData${namePage}`);
+            noneHTML(`changePage${namePage}`);
         }
+        else {
+            noneHTML(`noData${namePage}`);
+            document.getElementById(`changePage${namePage}`).style.display = "flex";
+            printList(listFilter[keyFilter], 1, namePage);
+        }
+    }
 }
 //reset upload admin
 function resetUploadAdmin() {
     removeChange("Upload");
     document.querySelector("#uploadAdmin form").reset();
+    document.getElementById("filterAdminUpload").value = "all";
     document.getElementById("resultUploadAdmin").textContent = "";
-    if(document.getElementById("addUploadAdmin") !=null) document.getElementById("addUploadAdmin").remove();
+    if (document.getElementById("addUploadAdmin") != null) document.getElementById("addUploadAdmin").remove();
     let listTr = document.querySelectorAll("#UploadContent table tr");
     for (let i = 1; nodeTr = listTr[i]; ++i) {
         nodeTr.remove();
@@ -601,19 +602,19 @@ async function getSuggestionAdmin(countPage) {
             listSeenSuggestion[x.checkSeen].push(x);
         }
     }
-    function filterSuggestionAdmin(){
+    function filterSuggestionAdmin() {
         filter(listSuggestion, listSeenSuggestion, "Suggestion");
     }
     document.getElementById("filterAdminSuggestion").removeEventListener('change', filterSuggestionAdmin);
     document.getElementById("filterAdminSuggestion").addEventListener('change', filterSuggestionAdmin);
 }
 
-async function viewSuggestion(dataID){
+async function viewSuggestion(dataID) {
     let response = await fetch(suggestionUrl);
     let listSuggestion = await response.json();
     removeListHTML("#viewSuggestion p");
-    for(let x of listSuggestion){
-        if(x.id == dataID){
+    for (let x of listSuggestion) {
+        if (x.id == dataID) {
             x.checkSeen = "Đã xem";
             updateData(suggestionUrl, dataID, x);
             document.getElementById("viewSuggestion").insertAdjacentHTML(`beforeend`, `
@@ -631,6 +632,7 @@ async function viewSuggestion(dataID){
 function resetSuggestionAdmin() {
     removeChange("Suggestion");
     removeListHTML("#viewSuggestion p");
+    document.getElementById("filterAdminSuggestion").value = "all";
     document.getElementById("resultSuggestionAdmin").textContent = "";
     let listTr = document.querySelectorAll("#SuggestionContent table tr");
     for (let i = 1; nodeTr = listTr[i]; ++i) {
@@ -645,7 +647,7 @@ let logOut = document.getElementById("logOutAdminID");
 logOut.addEventListener('click', () => {
     setPageNone();
     setStyleChoose();
-    getResetHomePage();
+    getResetHomePage(-1);
     blockHTML("homepage");
     flexHTML("header");
     flexHTML("footer");

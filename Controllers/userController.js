@@ -117,6 +117,9 @@ function setViewSearch(e) {
             viewLogo.className = "viewLogo";
             viewIconsearch.className = "viewIconSearch " + viewIconsearch.className;
         }
+        document.getElementById("searchMusic").style.height = "0px";
+        removeListHTML("#searchMusic li");
+        document.getElementById("searchHomePage").value = "";
     }
 }
 
@@ -183,7 +186,7 @@ async function getHomePage(loginState) {
                 if (xoa_dau(x.name).toLowerCase().search(keyWords.toLowerCase()) != -1 || xoa_dau(x.singer).toLowerCase().search(keyWords.toLowerCase()) != -1) {
                     document.getElementById("searchMusic").insertAdjacentHTML('beforeend', `
                     <li>
-                        <p class="nameSearch" onclick="getPageMusic(${x.id})">${x.name}</p>
+                        <p class="nameSearch" onclick="getPageMusic(${x.id}, ${loginState})">${x.name}</p>
                         <p class="singerSearch">${x.singer}</p>
                     </li>`);
                     count++;
@@ -290,7 +293,7 @@ function getMusicsDB(listMusics = [], contentHTMLID, countPage, loginState) {
             listMusicsID.insertAdjacentHTML('beforeend', `<li id="${i+1}">
             <p class="sttMusic">${i + 1}.</p>
             <p class="name" onclick="getMusicYT(${listMusics[i].id})">${listMusics[i].name}</p>
-            <p class="${listMusics[i].id} ${listMusics[i].listUserYT}" style="font-size: 25px !important;"> <i class="icon${listMusics[i].id} far fa-heart" onclick="processPageYT(${listMusics[i].id}, ${loginState},${i+1})"></i> </p><br>
+            <p class="${listMusics[i].id} ${listMusics[i].listUserYT}" style="font-size: 25px !important;"> <i class="icon${listMusics[i].id} fa fa-close" onclick="processPageYT(${listMusics[i].id}, ${loginState},${i+1})"></i> </p><br>
             <p class="singer">${listMusics[i].singer}</p>
             <hr></li>`);
             if (i == listMusics.length - 1) {
@@ -344,7 +347,7 @@ function getGenreHomePage(listMusicsGenre = {}, loginState) {
     let listGenreID = document.getElementsByClassName("theLoai");
     for (let j = 0; j < 2; ++j) {
         for (let i in listMusicsGenre) {
-            listGenreID[j].insertAdjacentHTML('beforeend', `<li onclick = "getMusicsGenre('${listMusicsGenre[i][0].genre.toUpperCase()}', ${loginState})"> ${i}</li>`);
+            listGenreID[j].insertAdjacentHTML('beforeend', `<li onclick = "getMusicsGenre('${listMusicsGenre[i][0].genre.toUpperCase()}', ${loginState})"> ${i.toLowerCase()}</li>`);
         }
     }
 }
@@ -456,6 +459,10 @@ for (let i = 0; i < 2; ++i) {
         blockHTML("dangbaihat");
     })
     let addUploadID = document.getElementById("addUpload");
+    if(addUploadID != undefined) addUploadID.remove();
+    let addUploadUser = document.getElementById("addUploadUser");
+    addUploadUser.insertAdjacentHTML('beforeend', `<button id="addUpload" class="button1">Đăng bài hát</button>`);
+    addUploadID = document.getElementById("addUpload");
     addUploadID.addEventListener('click', () => {
         let nameUpload = document.getElementById("nameUpload");
         let authorUpload = document.getElementById("authorUpload");
@@ -499,6 +506,10 @@ for (let i = 0; i < 2; ++i) {
         blockHTML("yeucaubaihat");
     })
     let addRequestID = document.getElementById("addRequest");
+    if(addRequestID != undefined) addRequestID.remove();
+    let addRequestUser = document.getElementById("addRequestUser");
+    addRequestUser.insertAdjacentHTML(`beforeend`, `<button id="addRequest" class="button1">Yêu cầu bài hát</button>`);
+    addRequestID = document.getElementById("addRequest");
     addRequestID.addEventListener('click', () => {
         let nameRequest = document.getElementById("nameRequest");
         let singerAuthorRequest = document.getElementById("singerAuthorRequest");
@@ -528,12 +539,16 @@ for (let i = 0; i < 2; ++i) {
         blockHTML("lienhegopy");
     })
     let addSuggestionID = document.getElementById("addSuggestion");
+    if (addSuggestionID != undefined) addSuggestionID.remove();
+    let addSuggestionUser = document.getElementById("addSuggestionUser");
+    addSuggestionUser.insertAdjacentHTML(`beforeend`, `<button id="addSuggestion" class="button1">Gửi thư</button>`);
+    addSuggestionID = document.getElementById("addSuggestion");
     addSuggestionID.addEventListener('click', () => {
         let emailSuggestion = document.getElementById("emailSuggestion");
         let subjectSuggestion = document.getElementById("subjectSuggestion");
         let contentSuggestion = document.getElementById("contentSuggestion");
         let resultSuggestion = document.getElementById("suggestionResult");
-        if (emailSuggestion.value == "" || contentSuggestion.value == "") {
+        if (emailSuggestion.value == "" || subjectSuggestion.value == "" || contentSuggestion.value == "") {
             resultSuggestion.style.color = "red";
             resultSuggestion.textContent = "Bắt buộc phải điền trường có dấu (*)";
         }
@@ -602,11 +617,11 @@ for (let i = 0; i < 2; ++i) {
 
 let signupID = document.getElementsByClassName("signupID");
 
-
-for (let i = 0; i < 1; ++i) {
+for (let i = 0; i < signupID.length; ++i) {
     signupID[i].addEventListener('click', () => {
         setPageNone();
-        flexHTML("dangky");
+        blockHTML("dangky");
+        imageDangNhap.style.display = "block";
     })
 }
 
@@ -640,6 +655,18 @@ async function processSignup() {
     else if (usernameSignup.value == "" || emailSignup.value == "" || passwordSignup.value == "") {
         signupResult.textContent = "Cần nhập đủ các trường!";
     }
+    else if (!emailSignup.value.includes("@gmail.com")){
+        signupResult.textContent = "Email không hợp lệ!";
+    }
+    else if(usernameSignup.value.length < 7){
+        signupResult.textContent = "Tài khoản tối thiểu 6 kí tự";
+    }
+    else if(passwordSignup.value.length < 6){
+        signupResult.textContent = "Mật khẩu tối thiểu 6 kí tự";
+    }
+    else if (usernameSignup.value.includes(" ") || emailSignup.value.includes(" ") || passwordSignup.value.includes(" ")){
+        signupResult.textContent = "Các trường không được chứa kí tự đặc biệt!";
+    }
     else {
         let newUser = {
             userName: `${usernameSignup.value}`,
@@ -653,7 +680,7 @@ async function processSignup() {
         document.querySelector("#signup form").reset();
         setTimeout(() => {
             noneHTML("dangky");
-            flexHTML("dangnhap");
+            blockHTML("dangnhap");
             signupResult.textContent = "";
         }, 1000)
     }
@@ -676,6 +703,8 @@ for (let i = 0; i < 2; ++i) {
         processClickHomePage(-1);
         getResetHomePage(-1);
         blockHTML("homepage");
+        document.querySelector("#accountHPContent h1").style.display = "block";
+        blockHTML("accountHP");
     })
 }
 
@@ -684,7 +713,7 @@ async function processYT(idMusic, loginState) {
     let listMusics = await response.json();
     if (loginState == -1) {
         setPageNone();
-        flexHTML("dangnhap");
+        blockHTML("dangnhap");
     }
     else {
         let index = 0;

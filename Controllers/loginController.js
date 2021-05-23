@@ -1,11 +1,13 @@
 //  process login
 
 let loginID = document.getElementsByClassName("loginID");
+let imageDangNhap = document.getElementById("imageDangNhap");
 
-for (let i = 0; i < 2; ++i) {
+for (let i = 0; i < 3; ++i) {
     loginID[i].addEventListener('click', () => {
         setPageNone();
-        flexHTML("dangnhap");
+        blockHTML("dangnhap");
+        imageDangNhap.style.display = "block";
     })
 }
 
@@ -53,6 +55,8 @@ async function processLogin() {
             }
             setPageNone();
             blockHTML("homepage");
+            document.querySelector("#accountHPContent h1").style.display = "none";
+            noneHTML("accountHP");
             processClickYT(loginState);
             processClickHomePage(loginState);
             getResetHomePage(loginState);
@@ -70,7 +74,7 @@ async function processLogin() {
 // process lick danh sach yeu thich
 
 function processClickYT(loginState) {
-    removeListHTML(".yeuThichID")
+    removeListHTML(".yeuThichID");
     let accountList = document.getElementsByClassName('account');
     for (let i = 0; i < 2; ++i) {
         accountList[i].insertAdjacentHTML("afterbegin", `<li class="yeuThichID">Danh sách yêu thích</li>`);
@@ -89,6 +93,8 @@ async function getPageYT(loginState) {
     let listMusics = await response.json();
     setPageNone();
     flexHTML("YTMusic");
+    noneHTML("logoYT");
+    removeListHTML("#musicYeuThich li");
     document.getElementById("pageYTRight").style.width = "50%";
     if (loginState != -1) {
         let listMusicYeuThich = [];
@@ -115,6 +121,7 @@ async function getMusicYT(musicID) {
     let response = await fetch(musicUrl);
     let listMusics = await response.json();
     blockHTML("pageYTLeft");
+    blockHTML("logoYT");
     document.getElementById("pageYTRight").style.width = "35%";
     let index = 0;
     for (let x of listMusics) {
@@ -159,6 +166,9 @@ async function processPageYT(musicID, loginState, indexLi) {
         i++;
     }
     musicUpdate.listUserYT = musicUpdate.listUserYT.replace(` songYT${loginState}`, "");
+    if(listLiYT[0] == undefined){
+        document.getElementById("countMusicYT").style.display = "block";
+    }
     updateData(musicUrl, musicID, musicUpdate);
 }
 
