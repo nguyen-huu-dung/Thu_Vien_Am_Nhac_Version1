@@ -197,7 +197,7 @@ async function deleteAdmin(namePage, musicID) {
     }, 1500);
 }
 
-//process musics admin - Vũ Hoàng Mai
+//process musics admin
 
 getChoose("musicsAdmin");
 
@@ -402,7 +402,7 @@ document.getElementById("clearMusicAdmin").addEventListener('click', () => {
     document.getElementById("addMusicAdmin").style.display = "flex";
 })
 
-//process upload admin - Vũ Hoàng Việt Dũng
+//process upload admin
 
 getChoose("uploadAdmin");
 
@@ -546,7 +546,7 @@ document.getElementById("clearUploadAdmin").addEventListener('click', () => {
     }
 })
 
-//process request admin - Dương Thành Đạt
+//process request admin
 getChoose("requestAdmin");
 async function getRequestAdmin(countPage) {
     let response = await fetch(requestUrl);
@@ -575,7 +575,7 @@ function resetRequestAdmin() {
     getRequestAdmin(1);
 }
 
-//process suggest admin - Dương Thành Đạt
+//process suggest admin
 getChoose("suggestionAdmin");
 async function getSuggestionAdmin(countPage) {
     let response = await fetch(suggestionUrl);
