@@ -77,3 +77,5 @@ window.onload = function () {
         processClickHomePage(loginState);
     }
 }
+
+

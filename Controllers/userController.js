@@ -1,5 +1,7 @@
 //process homepage
 
+localStorage.clear()
+
 setPageNone();
 noneHTML("header");
 noneHTML("footer");
@@ -45,6 +47,7 @@ function setViewMenu(e) {
     let marginTheLoai = document.querySelector(".theLoaiID");
     let iconAccount = document.querySelector(".accountID p");
     let marginAccount = document.querySelector(".accountID");
+    console.log(e.target);
     if (e.target != iconMenu && e.target != iconTheLoai && e.target != marginTheLoai && e.target != iconAccount && e.target != marginAccount) {
         listMenuID.className = "listMenu";
         listTheLoai[0].className = "theLoai viewTL";
@@ -769,3 +772,9 @@ async function processYT(idMusic, loginState) {
         updateData(musicUrl, idMusic, musicUpdate);
     }
 }
+
+
+resetAdminHome();
+document.querySelector("#login form").reset();
+localStorage.setItem("loginState", 0);
+localStorage.setItem("namePage", "adminHome");

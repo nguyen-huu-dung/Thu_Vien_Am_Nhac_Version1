@@ -3,11 +3,8 @@
     margin: 0; 
     border: none; 
     box-sizing: border-box;
-}    
-
-body {
     font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
-}
+}    
 
 input {
     height: 25px;
