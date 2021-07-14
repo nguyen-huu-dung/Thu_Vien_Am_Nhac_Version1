@@ -772,9 +772,3 @@ async function processYT(idMusic, loginState) {
         updateData(musicUrl, idMusic, musicUpdate);
     }
 }
-
-
-resetAdminHome();
-document.querySelector("#login form").reset();
-localStorage.setItem("loginState", 0);
-localStorage.setItem("namePage", "adminHome");
